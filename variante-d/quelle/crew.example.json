@@ -1,0 +1,18 @@
+{
+  "crew": [
+    {
+      "name": "Nikos",
+      "role": "e.g. Skipper",
+      "languages": "e.g. Greek, English",
+      "photo": "https://milossailways.gr/img/crew-nikos.jpg",
+      "note": "One or two sentences in his own words (optional)"
+    },
+    {
+      "name": "Minas",
+      "role": "e.g. Host & chef",
+      "languages": "e.g. Greek, English, French",
+      "photo": "https://milossailways.gr/img/crew-minas.jpg",
+      "note": "One or two sentences in his own words (optional)"
+    }
+  ]
+}

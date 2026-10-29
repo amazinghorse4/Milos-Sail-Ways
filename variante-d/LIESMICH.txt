@@ -1,0 +1,25 @@
+Milos Sail Ways – Variante D
+============================
+
+website/   Diesen Inhalt auf den Webspace hochladen (index.html, kleftiko-tour-milos/, polyaigos-tour/, sitemap.xml, robots.txt).
+quelle/    Zum Bearbeiten. NICHT hochladen.
+
+Bewertungen eintragen
+---------------------
+1. quelle/reviews.json öffnen (Vorlage: reviews.example.json).
+2. google_review_url: Link aus dem Google-Unternehmensprofil > "Bewertungen erhalten".
+3. Pro Bewertung: Vorname, Land, Datum, Sterne, Text.
+   Den Text WORTWÖRTLICH von Google kopieren, nicht kürzen oder ändern.
+4. Neu bauen (Python 3):
+      cd quelle
+      python3 build.py voyage-base.html ../website
+
+Solange keine Bewertungen eingetragen sind, zeigt die Seite automatisch
+"Sailed with us?" mit dem Button "Rate us on Google".
+
+Crew eintragen
+--------------
+1. quelle/crew.json öffnen (Vorlage: crew.example.json).
+2. Pro Person: Name, Rolle, Sprachen, Foto-Link, optional ein Satz.
+   Fotos z. B. als quelle-unabhängige Dateien unter website/img/ hochladen und hier verlinken.
+3. Neu bauen wie oben. Ohne Einträge zeigt die Willkommenskarte nur den Text.

@@ -1,0 +1,15 @@
+{
+  "google_review_url": "https://g.page/r/XXXXXXXX/review   <- from Google Business Profile > Ask for reviews",
+  "google_maps_url": "https://maps.app.goo.gl/XXXXXXXX     <- link to the Google Maps listing",
+  "total_count": "optional: total number of Google reviews, e.g. 23",
+  "reviews": [
+    {
+      "name": "First name only, as shown on Google",
+      "country": "Country (optional)",
+      "date": "2027-06",
+      "stars": 5,
+      "text": "Copy the review text word for word from Google. Do not shorten or change it.",
+      "source": "Google"
+    }
+  ]
+}

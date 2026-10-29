@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230f2c3a'/><path d='M15 5 7.5 21H15z' fill='%23f6f8f7'/><path d='M17 7.5c4.3 3.4 6.3 8 6.3 13.5H17z' fill='%23f0c64b'/><path d='M5 23.5h22l-2.6 3H7.6z' fill='%239fd9d4'/></svg>">
+<title>Milos Boat Tours | Private Sailing to Kleftiko &amp; Polyaigos</title>
+<meta name="description" content="Private sailing cruises in Milos to Kleftiko and Polyaigos for up to 10 guests. Lunch, open bar, snorkel and SUP included. From €900 per boat.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://milossailways.gr/">
+<link rel="alternate" hreflang="en" href="https://milossailways.gr/">
+<link rel="alternate" hreflang="el" href="https://milossailways.gr/el/">
+<link rel="alternate" hreflang="fr" href="https://milossailways.gr/fr/">
+<link rel="alternate" hreflang="es" href="https://milossailways.gr/es/">
+<link rel="alternate" hreflang="x-default" href="https://milossailways.gr/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Milos Sail Ways">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Milos Boat Tours | Private Sailing to Kleftiko &amp; Polyaigos">
+<meta property="og:description" content="Private sailing cruises in Milos to Kleftiko and Polyaigos for up to 10 guests. Lunch, open bar, snorkel and SUP included. From €900 per boat.">
+<meta property="og:url" content="https://milossailways.gr/">
+<meta property="og:image" content="https://milossailways.gr/wp-content/uploads/2026/01/1762365155181-scaled.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0f2c3a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght,FLAR,VOLM@300..800,0..100,0..100&display=swap">
+<style>
+/* Milos Sail Ways – one stylesheet, mobile first.
+   Concept: chalk-white Milos rock, deep Aegean ink, Kleftiko turquoise,
+   and the sulphur yellow of Milos' old mines as the single bold accent
+   (buttons, lunch stop, peak-season bar). Photos carry the page. */
+:root {
+  --chalk: #f6f8f7;      /* page – cool white of Sarakiniko rock */
+  --white: #ffffff;
+  --ink: #0f2c3a;        /* deep Aegean */
+  --ink-2: #163d4f;
+  --sea: #0b7480;        /* Kleftiko turquoise, text-safe */
+  --shallow: #9fd9d4;    /* shallow-water turquoise */
+  --foam: #e4f1ef;
+  --sun: #f0c64b;        /* Milos sulphur */
+  --sun-2: #e2b232;
+  --stone: #52646b;      /* secondary text */
+  --line: #d5e0de;
+  --wa: #1f9e57;
+
+  --f: "Commissioner", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --r: 6px;
+  --r-lg: 14px;
+  --wrap: 1200px;
+  --gut: max(18px, env(safe-area-inset-left, 0px));
+  --gut-r: max(18px, env(safe-area-inset-right, 0px));
+  --header-h: 64px;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 12px); }
+body {
+  margin: 0; background: var(--chalk); color: var(--ink);
+  font-family: var(--f); font-size: 1.0625rem; line-height: 1.6;
+  font-variation-settings: "FLAR" 0, "VOLM" 0;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)); /* room for action bar on mobile */
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--sea); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: var(--ink); }
+:focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; border-radius: 3px; }
+h1, h2, h3 { line-height: 1.12; text-wrap: balance; margin: 0 0 .5em; font-variation-settings: "FLAR" 100, "VOLM" 40; }
+h1 { font-size: clamp(2.4rem, 6.6vw, 5.2rem); font-weight: 760; letter-spacing: -.025em; line-height: .98; }
+h2 { font-size: clamp(1.7rem, 3.6vw, 2.6rem); font-weight: 720; letter-spacing: -.015em; }
+h3 { font-size: 1.2rem; font-weight: 680; }
+p { margin: 0 0 1em; }
+.sr { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.small { font-size: .9rem; color: var(--stone); }
+.center { text-align: center; justify-content: center; }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-left: var(--gut); padding-right: var(--gut-r); }
+.narrow { max-width: 820px; }
+.skip { position: absolute; left: -999px; top: 8px; z-index: 100; background: var(--sun); color: var(--ink); padding: 8px 14px; border-radius: var(--r); }
+.skip:focus { left: 12px; }
+
+/* icons */
+.ico { width: 1.15em; height: 1.15em; flex: none; vertical-align: -.2em; }
+.ico-lg { width: 30px; height: 30px; color: var(--sea); }
+
+/* buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5em;
+  min-height: 48px; padding: .7em 1.25em; border-radius: 999px; border: 2px solid transparent;
+  font: inherit; font-weight: 650; font-size: 1rem; line-height: 1.1; text-decoration: none; cursor: pointer;
+  transition: background-color .15s, border-color .15s, color .15s, transform .15s;
+}
+.btn:active { transform: translateY(1px); }
+.btn-sun { background: var(--sun); color: var(--ink); }
+.btn-sun:hover { background: var(--sun-2); color: var(--ink); }
+.btn-line { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn-line:hover { background: var(--ink); color: var(--white); }
+.btn-ghost { border-color: rgba(255,255,255,.7); color: var(--white); background: rgba(15,44,58,.25); backdrop-filter: blur(4px); }
+.btn-ghost:hover { background: var(--white); color: var(--ink); }
+.btn-wa { background: var(--wa); color: var(--white); }
+.btn-wa:hover { background: #18834a; color: var(--white); }
+.btn-sm { min-height: 40px; padding: .5em 1em; font-size: .95rem; }
+.btn-lg { min-height: 54px; padding: .8em 1.5em; font-size: 1.05rem; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.link-arrow { display: inline-flex; align-items: center; gap: .4em; font-weight: 650; text-decoration: none; }
+.link-arrow .ico { transition: transform .15s; }
+.link-arrow:hover .ico { transform: translateX(3px); }
+
+/* header */
+.site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: rgba(246,248,247,.94); backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid var(--line); }
+.header-in { display: flex; align-items: center; gap: 16px; height: var(--header-h); }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; }
+.logo-mark { width: 34px; height: 34px; color: var(--ink); }
+.logo-text { font-size: 1.15rem; font-weight: 500; letter-spacing: -.01em; white-space: nowrap; font-variation-settings: "FLAR" 100; }
+.logo-text b { font-weight: 760; }
+.main-nav { display: none; gap: 4px; margin-left: auto; }
+.main-nav a { color: var(--ink); text-decoration: none; padding: 8px 12px; border-radius: 999px; font-weight: 550; font-size: .97rem; }
+.main-nav a:hover { background: var(--foam); }
+.main-nav a[aria-current="page"] { background: var(--ink); color: var(--white); }
+.header-tools { display: flex; align-items: center; gap: 10px; margin-left: auto; }
+.header-tools .btn-sun { display: none; }
+.lang { display: none; align-items: center; gap: 2px; color: var(--stone); }
+.lang a { font-size: .82rem; font-weight: 650; color: var(--stone); text-decoration: none; padding: 6px 7px; border-radius: 6px; letter-spacing: .03em; }
+.lang a[aria-current="true"] { color: var(--ink); background: var(--foam); }
+.lang a:hover { color: var(--ink); }
+.menu-btn { display: inline-grid; place-items: center; width: 46px; height: 46px; border: 0; border-radius: 999px; background: var(--foam); color: var(--ink); cursor: pointer; }
+.menu-btn .ico { width: 24px; height: 24px; }
+.mobile-menu { border-top: 1px solid var(--line); background: var(--chalk); max-height: calc(100svh - var(--header-h)); overflow-y: auto; }
+.mobile-menu nav { display: grid; padding-block: 12px 24px; }
+.mobile-menu nav > a { padding: 14px 0; font-size: 1.3rem; font-weight: 650; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); font-variation-settings: "FLAR" 100; }
+.mobile-menu nav > a[aria-current="page"] { color: var(--sea); }
+.lang-mobile { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 18px; }
+.lang-mobile a { font-size: .95rem; padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; }
+
+@media (min-width: 640px) {
+  .header-tools .btn-sun { display: inline-flex; }
+  .lang { display: flex; }
+  .lang .ico { width: 16px; height: 16px; margin-right: 2px; }
+}
+@media (min-width: 1100px) {
+  .main-nav { display: flex; }
+  .header-tools { margin-left: 8px; }
+  .menu-btn { display: none; }
+  .mobile-menu { display: none !important; }
+}
+
+/* hero */
+.hero { position: relative; color: var(--white); min-height: clamp(560px, 86svh, 820px); display: flex; align-items: flex-end; overflow: hidden; background: var(--ink); }
+.hero-media, .page-hero .hero-media { position: absolute; inset: 0; background: linear-gradient(165deg, #2aa3a8 0%, #0b7480 38%, #0f2c3a 100%); }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; }
+.hero::after, .page-hero.has-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,30,40,.86) 0%, rgba(10,30,40,.45) 45%, rgba(10,30,40,.05) 80%); pointer-events: none; }
+.hero-in { position: relative; z-index: 1; padding-block: 120px 44px; }
+.hero h1 { max-width: 12ch; margin-bottom: .35em; }
+.hero-lead { font-size: clamp(1.08rem, 1.8vw, 1.3rem); max-width: 40ch; line-height: 1.5; margin-bottom: 1.1em; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0 0 24px; padding: 0; }
+.chips li { font-size: .9rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28); backdrop-filter: blur(4px); }
+.hero-price { margin: 20px 0 0; font-size: .98rem; opacity: .92; }
+.hero-price strong { color: var(--sun); font-size: 1.15em; }
+
+/* page hero */
+.page-hero { position: relative; padding-block: 56px 36px; background: var(--foam); }
+.page-hero h1 { font-size: clamp(2.2rem, 5.4vw, 4rem); max-width: 18ch; }
+.page-hero .hero-lead { color: var(--stone); max-width: 52ch; margin-bottom: 0; }
+.page-hero.has-img { color: var(--white); min-height: clamp(380px, 56svh, 560px); display: flex; align-items: flex-end; background: var(--ink); overflow: hidden; }
+.page-hero.has-img .wrap { position: relative; z-index: 1; }
+.page-hero.has-img .hero-lead { color: var(--white); opacity: .92; }
+.page-hero.has-img .hero-media img { width: 100%; height: 100%; object-fit: cover; }
+
+/* facts */
+.facts-band { background: var(--white); border-bottom: 1px solid var(--line); }
+.facts { list-style: none; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 22px 18px; padding-block: 26px; }
+.facts li { display: flex; gap: 12px; align-items: flex-start; }
+.facts strong { display: block; font-weight: 680; line-height: 1.25; }
+.facts span { display: block; font-size: .9rem; color: var(--stone); line-height: 1.4; }
+@media (min-width: 560px) { .facts { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 900px) { .facts { grid-template-columns: repeat(4, 1fr); padding-block: 30px; } }
+
+/* sections */
+.section { padding-block: clamp(56px, 8vw, 104px); }
+.section-tight { padding-block: clamp(36px, 5vw, 64px); }
+.sec-head { max-width: 640px; margin-bottom: clamp(26px, 4vw, 44px); }
+.sec-head p { color: var(--stone); font-size: 1.1rem; margin: 0; }
+.sec-head-row { max-width: none; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; }
+.sec-head-row h2 { margin: 0; }
+
+/* route cards */
+.routes { display: grid; gap: 40px; }
+@media (min-width: 900px) { .routes { grid-template-columns: 1fr 1fr; gap: 36px; } .routes-one { grid-template-columns: 1fr; } .routes-one .route-card { grid-template-columns: 1.1fr 1fr; align-items: center; } }
+.route-card { display: grid; gap: 22px; }
+.rc-media { display: block; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--r-lg); background: linear-gradient(160deg, #2aa3a8, #0f2c3a); }
+.rc-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.rc-media:hover img { transform: scale(1.03); }
+.rc-feel { margin: 0 0 4px; font-size: .92rem; font-weight: 650; color: var(--sea); }
+.route-card h3 { font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 740; letter-spacing: -.015em; margin-bottom: .3em; }
+.route-card h3 a { color: var(--ink); text-decoration: none; }
+.route-card h3 a:hover { color: var(--sea); }
+.route-card > .rc-body > p { color: var(--stone); }
+.rc-meta { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: .95rem; margin: 0 0 18px; }
+.rc-meta span { display: inline-flex; align-items: center; gap: 6px; }
+.rc-meta strong { font-size: 1.1em; }
+
+/* mini route – stops joined by a dashed course line */
+.mini-route { list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 0; font-size: .9rem; font-weight: 600; }
+.mini-route li { display: inline-flex; align-items: center; }
+.mini-route li + li::before { content: ""; width: 22px; border-top: 2px dashed var(--shallow); margin: 0 8px; }
+.mini-route li.lunch span { background: var(--sun); padding: 2px 9px; border-radius: 999px; }
+
+/* boat */
+.boat { background: var(--white); }
+.boat-grid { display: grid; gap: 32px; align-items: center; }
+@media (min-width: 900px) { .boat-grid { grid-template-columns: 1fr 1fr; gap: 64px; } }
+.boat-media { border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 1; background: linear-gradient(160deg, #2aa3a8, #0f2c3a); }
+.boat-media img { width: 100%; height: 100%; object-fit: cover; }
+.boat-text > p { color: var(--stone); font-size: 1.08rem; max-width: 46ch; }
+.specs-mini { display: grid; grid-template-columns: repeat(4, auto); justify-content: start; gap: 8px 32px; margin: 28px 0; }
+.specs-mini dt { font-size: .85rem; color: var(--stone); }
+.specs-mini dd { margin: 0; font-size: 1.7rem; font-weight: 720; font-variation-settings: "FLAR" 100; font-variant-numeric: tabular-nums; }
+@media (max-width: 420px) { .specs-mini { grid-template-columns: repeat(2, auto); } }
+
+/* season strip – prices drawn to scale */
+.prices-band { background: var(--ink); color: var(--white); }
+.prices-band .sec-head p { color: #c3d5d9; }
+.prices-band a { color: var(--sun); }
+.season { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: clamp(4px, 1.2vw, 14px); align-items: end; }
+.season li { display: grid; grid-template-rows: auto 160px 3.2em; justify-items: stretch; text-align: center; }
+.s-price { font-size: clamp(.72rem, 1.6vw, 1.05rem); font-weight: 700; font-variant-numeric: tabular-nums; padding-bottom: 8px; white-space: nowrap; align-self: end; }
+.s-bar { display: block; align-self: end; height: var(--h); background: var(--shallow); border-radius: 6px 6px 0 0; }
+.season li.peak .s-bar { background: var(--sun); }
+.s-month { align-self: start; padding-top: 10px; border-top: 2px solid rgba(255,255,255,.25); font-size: clamp(.75rem, 1.5vw, .95rem); font-weight: 600; text-transform: capitalize; }
+.s-month small { display: block; font-size: .72rem; font-weight: 500; opacity: .75; }
+.prices-link { margin: 28px 0 0; }
+.price-grid .season { color: var(--ink); }
+.price-grid .s-month { border-top-color: var(--line); }
+.price-grid .s-bar { background: var(--sea); opacity: .55; }
+.price-grid .season li.peak .s-bar { background: var(--sun); opacity: 1; }
+
+/* mosaic + gallery */
+.mosaic { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.mosaic a { display: block; overflow: hidden; border-radius: var(--r); aspect-ratio: 1; background: linear-gradient(160deg, #9fd9d4, #0b7480); }
+.mosaic img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.mosaic a:hover img { transform: scale(1.04); }
+.mosaic .m1 { grid-column: span 2; aspect-ratio: 16 / 10; }
+@media (min-width: 900px) {
+  .mosaic { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; gap: 14px; }
+  .mosaic a { aspect-ratio: auto; }
+  .mosaic .m1 { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+}
+.ig-link { margin: 24px 0 0; }
+.ig-link a { display: inline-flex; align-items: center; gap: 8px; font-weight: 650; }
+.gallery { columns: 2 160px; column-gap: 10px; }
+.gallery a { display: block; margin-bottom: 10px; border-radius: var(--r); overflow: hidden; break-inside: avoid; background: linear-gradient(160deg, #9fd9d4, #0b7480); min-height: 120px; }
+.gallery img { width: 100%; }
+@media (min-width: 900px) { .gallery { columns: 4; column-gap: 14px; } .gallery a { margin-bottom: 14px; } }
+.lightbox { position: fixed; inset: 0; z-index: 90; background: rgba(8,22,30,.95); display: grid; place-items: center; padding: calc(56px + env(safe-area-inset-top, 0px)) var(--gut-r) calc(56px + env(safe-area-inset-bottom, 0px)) var(--gut); }
+.lightbox img { max-height: 100%; max-width: 100%; object-fit: contain; border-radius: var(--r); }
+.lightbox button { position: absolute; border: 0; background: rgba(255,255,255,.12); color: var(--white); width: 48px; height: 48px; border-radius: 999px; cursor: pointer; display: grid; place-items: center; font-size: 1.4rem; }
+.lightbox .lb-close { top: calc(10px + env(safe-area-inset-top, 0px)); right: calc(10px + env(safe-area-inset-right, 0px)); }
+.lightbox .lb-prev { left: calc(10px + env(safe-area-inset-left, 0px)); top: 50%; transform: translateY(-50%); }
+.lightbox .lb-next { right: calc(10px + env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%); }
+.lightbox .lb-count { position: absolute; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); color: #c3d5d9; font-size: .9rem; }
+
+/* FAQ */
+.faq details { border-bottom: 1px solid var(--line); }
+.faq details:first-of-type { border-top: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; padding: 20px 44px 20px 0; position: relative; font-weight: 650; font-size: 1.1rem; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%); font-size: 1.6rem; font-weight: 400; color: var(--sea); transition: transform .2s; }
+.faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.faq details p { color: var(--stone); padding-right: 44px; margin-top: -4px; }
+
+/* booking form */
+.book-band { background: var(--foam); }
+.booking { display: grid; gap: 20px; }
+.bk-title { margin-bottom: 0; }
+.bk-lead { color: var(--stone); margin: -12px 0 0; }
+.bk-route { border: 0; margin: 0; padding: 0; display: grid; gap: 8px; }
+.bk-route legend { font-weight: 650; margin-bottom: 8px; padding: 0; }
+.bk-route label { position: relative; }
+.bk-route input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.bk-route span { display: block; padding: 14px 16px; border: 2px solid var(--line); border-radius: var(--r); background: var(--white); font-weight: 600; cursor: pointer; transition: border-color .15s, background-color .15s; }
+.bk-route input:checked + span { border-color: var(--sea); background: #f0faf9; box-shadow: inset 4px 0 0 var(--sea); }
+.bk-route input:focus-visible + span { outline: 3px solid var(--sun); outline-offset: 2px; }
+@media (min-width: 700px) { .bk-route { grid-template-columns: repeat(3, 1fr); } }
+.bk-grid { display: grid; gap: 14px; }
+@media (min-width: 600px) { .bk-grid { grid-template-columns: 1fr 1fr; } .fld-wide { grid-column: 1 / -1; } }
+.fld { display: grid; gap: 6px; }
+.fld > span { font-weight: 600; font-size: .95rem; }
+.fld input, .fld select, .fld textarea {
+  width: 100%; min-height: 50px; padding: 12px 14px; font: inherit; color: var(--ink);
+  background: var(--white); border: 2px solid var(--line); border-radius: var(--r); appearance: none;
+}
+.fld select { background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%); background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%; background-size: 6px 6px; background-repeat: no-repeat; }
+.fld input:focus, .fld select:focus, .fld textarea:focus { border-color: var(--sea); outline: none; box-shadow: 0 0 0 3px rgba(11,116,128,.18); }
+.fld .invalid, .fld [aria-invalid="true"] { border-color: #b3372b; }
+.bk-estimate { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; padding: 18px 20px; border-radius: var(--r); background: var(--ink); color: var(--white); }
+.bk-est-label { font-weight: 600; }
+#bk-out { font-size: 1.05rem; text-align: right; }
+#bk-out strong { font-size: 1.7rem; color: var(--sun); font-variation-settings: "FLAR" 100; font-variant-numeric: tabular-nums; }
+#bk-out small { display: block; font-size: .82rem; color: #c3d5d9; }
+.bk-error { margin: 0; color: #b3372b; font-weight: 600; }
+.bk-note { margin: 0; font-size: .9rem; color: var(--stone); }
+.booking .btn-row .btn { flex: 1 1 220px; }
+
+/* tour pages */
+.tour-bar { background: var(--white); border-bottom: 1px solid var(--line); }
+.tour-bar-in { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 26px; padding-block: 16px; font-size: .95rem; }
+.tour-bar-in span { display: inline-flex; align-items: center; gap: 7px; }
+.tb-price strong { font-size: 1.15em; }
+.tour-bar-in .btn { margin-left: auto; }
+.tour-grid { display: grid; gap: 48px; }
+@media (min-width: 960px) { .tour-grid { grid-template-columns: 1.3fr 1fr; gap: 72px; } .tour-aside { position: sticky; top: calc(var(--header-h) + 24px); align-self: start; } }
+
+/* the signature: the day drawn as a sailing course */
+.route-line { list-style: none; margin: 8px 0 36px; padding: 0 0 0 34px; position: relative; }
+.route-line::before { content: ""; position: absolute; left: 10px; top: 12px; bottom: 12px; border-left: 2px dashed var(--sea); opacity: .55; }
+.route-line li { position: relative; padding-bottom: 26px; }
+.route-line li:last-child { padding-bottom: 0; }
+.route-line li::before { content: ""; position: absolute; left: -30px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--chalk); border: 3px solid var(--sea); }
+.route-line li.timed::before { background: var(--sea); }
+.route-line li.lunch::before { width: 20px; height: 20px; left: -33px; top: 3px; background: var(--sun); border-color: var(--ink); }
+.route-line time { display: inline-block; font-size: .85rem; font-weight: 700; color: var(--sea); font-variant-numeric: tabular-nums; margin-bottom: 2px; }
+.route-line h3 { margin: 0 0 4px; font-size: 1.3rem; }
+.route-line p { margin: 0; color: var(--stone); max-width: 52ch; }
+.tag { display: inline-block; font-size: .78rem; font-weight: 700; background: var(--sun); color: var(--ink); padding: 2px 9px; border-radius: 999px; margin-left: 4px; vertical-align: 1px; }
+.note-box { padding: 22px 24px; border-radius: var(--r); background: var(--foam); border-left: 4px solid var(--sea); }
+.note-box h3 { font-size: 1.1rem; margin-bottom: .35em; }
+.note-box p { margin: 0; color: var(--stone); }
+.aside-img { border-radius: var(--r-lg); aspect-ratio: 4 / 3; object-fit: cover; width: 100%; margin-bottom: 28px; background: linear-gradient(160deg, #9fd9d4, #0b7480); }
+.incl h2 { font-size: 1.5rem; }
+.incl h3 { font-size: 1rem; margin: 20px 0 10px; color: var(--sea); }
+.ticks { list-style: none; margin: 0 0 10px; padding: 0; display: grid; gap: 8px; }
+.ticks li { display: flex; gap: 10px; align-items: flex-start; }
+.ticks .ico { color: var(--sea); margin-top: 3px; }
+@media (min-width: 520px) { .ticks.cols { grid-template-columns: 1fr 1fr; } }
+.custom-band { background: var(--white); }
+.custom-band p { color: var(--stone); font-size: 1.1rem; }
+
+/* compare + price tables */
+.table-wrap { overflow-x: auto; margin-top: 48px; }
+table { border-collapse: collapse; width: 100%; min-width: 520px; }
+th, td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+thead th { font-size: 1.05rem; font-weight: 700; }
+tbody th { font-weight: 600; color: var(--stone); width: 24%; }
+.prices { min-width: 0; margin-top: 0; }
+.prices td { font-variant-numeric: tabular-nums; font-weight: 650; }
+.price-grid { display: grid; gap: 48px; }
+.price-grid .table-wrap { margin-top: 36px; }
+.price-grid .note-box { margin-top: 28px; }
+@media (min-width: 960px) { .price-grid { grid-template-columns: 1.5fr 1fr; gap: 72px; } }
+.price-grid > .incl { padding: 28px; background: var(--white); border-radius: var(--r-lg); align-self: start; }
+
+/* about */
+.about-grid { display: grid; gap: 40px; align-items: center; }
+@media (min-width: 900px) { .about-grid { grid-template-columns: 1.2fr 1fr; gap: 72px; } }
+.about-img { border-radius: var(--r-lg); width: 100%; aspect-ratio: 1; object-fit: cover; background: linear-gradient(160deg, #9fd9d4, #0b7480); }
+.prose { font-size: 1.1rem; }
+.prose p, .prose li { color: #2a4652; }
+.prose h2 { margin-top: 1.4em; font-size: 1.8rem; }
+.prose h3 { margin-top: 1.3em; }
+.prose img { border-radius: var(--r); margin: 1.5em 0; }
+.specs { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; margin: 24px 0 0; }
+.specs div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.specs dt { color: var(--stone); }
+.specs dd { margin: 0; font-weight: 650; text-align: right; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .specs { grid-template-columns: 1fr; } }
+.policy { padding-left: 1.2em; display: grid; gap: 14px; margin-bottom: 2em; }
+
+/* contact */
+.contact-grid { display: grid; gap: 40px; }
+@media (min-width: 960px) { .contact-grid { grid-template-columns: 1.6fr 1fr; gap: 64px; } }
+.book-card { background: var(--white); padding: clamp(20px, 4vw, 36px); border-radius: var(--r-lg); border: 1px solid var(--line); }
+.contact-aside h2 { font-size: 1.4rem; margin-top: 8px; }
+.contact-list { list-style: none; padding: 0; margin: 0 0 32px; display: grid; gap: 14px; }
+.contact-list li { display: flex; align-items: center; gap: 10px; }
+.contact-list a:not(.btn) { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 600; text-decoration: none; }
+.contact-list a:not(.btn):hover { color: var(--sea); }
+.contact-list .btn { width: 100%; }
+
+/* blog */
+.posts { list-style: none; margin: 0; padding: 0; display: grid; gap: 36px; }
+@media (min-width: 760px) { .posts { grid-template-columns: 1fr 1fr; gap: 44px 36px; } }
+@media (min-width: 1100px) { .posts { grid-template-columns: repeat(3, 1fr); } }
+.posts li { display: grid; gap: 14px; align-content: start; }
+.post-img { display: block; aspect-ratio: 3 / 2; border-radius: var(--r); overflow: hidden; background: linear-gradient(160deg, #9fd9d4, #0b7480); }
+.post-img img { width: 100%; height: 100%; object-fit: cover; }
+.posts time { font-size: .88rem; color: var(--stone); }
+.posts h2 { font-size: 1.3rem; margin: 4px 0 6px; }
+.posts h2 a { color: var(--ink); text-decoration: none; }
+.posts h2 a:hover { color: var(--sea); }
+.posts p { color: var(--stone); font-size: .98rem; }
+.post-meta { color: var(--stone); font-size: .95rem; }
+.post-hero { border-radius: var(--r-lg); margin: 32px 0; width: 100%; }
+.nf { padding-block: 120px; }
+.nf-langs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; margin-top: 28px; font-size: .95rem; }
+
+/* footer */
+.site-footer { background: var(--ink); color: #c3d5d9; padding-block: 64px 24px; font-size: .97rem; }
+.site-footer a { color: var(--white); text-decoration: none; }
+.site-footer a:hover { color: var(--sun); }
+.footer-grid { display: grid; gap: 36px; }
+@media (min-width: 760px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
+.brand-light, .brand-light .logo-mark { color: var(--white); }
+.f-brand p { margin: 16px 0; max-width: 30ch; }
+.f-title { font-size: 1rem; color: var(--white); margin-bottom: 14px; font-variation-settings: "FLAR" 0; font-weight: 700; }
+.f-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.f-list li, .f-list a, .f-hours { display: inline-flex; align-items: center; gap: 9px; }
+.f-small { font-size: .9rem; }
+.social { display: flex; gap: 10px; }
+.social a { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 999px; background: var(--ink-2); }
+.social .ico { width: 20px; height: 20px; }
+.f-bottom { margin-top: 48px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.12); font-size: .85rem; }
+.f-bottom p { margin: 0; }
+
+/* mobile action bar */
+.action-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.4fr; gap: 10px;
+  padding: 10px max(12px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px));
+  background: rgba(246,248,247,.96); backdrop-filter: blur(10px); border-top: 1px solid var(--line);
+}
+.action-bar a { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; border-radius: 999px; font-weight: 700; text-decoration: none; }
+.ab-wa { background: var(--wa); color: var(--white); }
+.ab-book { background: var(--sun); color: var(--ink); }
+.ab-wa:hover { color: var(--white); } .ab-book:hover { color: var(--ink); }
+@media (min-width: 900px) { .action-bar { display: none; } body { padding-bottom: 0; } }
+.p-contact .action-bar .ab-book { display: none; }
+.p-contact .action-bar { grid-template-columns: 1fr; }
+
+/* missing/blocked images: keep the coloured placeholder, hide the broken icon */
+img.img-missing { background: linear-gradient(160deg, #9fd9d4, #0b7480); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://milossailways.gr/#website","url":"https://milossailways.gr/","name":"Milos Sail Ways","inLanguage":"en","publisher":{"@id":"https://milossailways.gr/#business"}},{"@type":["LocalBusiness","TravelAgency"],"@id":"https://milossailways.gr/#business","name":"Milos Sail Ways","url":"https://milossailways.gr/","image":["https://milossailways.gr/wp-content/uploads/2026/01/1762365155181-scaled.jpg","https://milossailways.gr/wp-content/uploads/2026/02/1770061476092-1024x1024.jpg","https://milossailways.gr/wp-content/uploads/2026/01/kleftiko-2.jpg"],"logo":"https://milossailways.gr/favicon.svg","telephone":"+306932977623","email":"info@milossailways.gr","priceRange":"€900–€1400","currenciesAccepted":"EUR","address":{"@type":"PostalAddress","streetAddress":"Mersinia","addressLocality":"Milos","addressRegion":"Cyclades","postalCode":"848 00","addressCountry":"GR"},"areaServed":{"@type":"Place","name":"Milos, Cyclades, Greece"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"10:00","closes":"19:00"}],"sameAs":["https://www.instagram.com/milos_sailways/","https://www.facebook.com/profile.php?id=61583559621736"],"founder":[{"@type":"Person","name":"Nikos Mathioudakis"},{"@type":"Person","name":"Minas Moraitis"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where does the cruise start?","acceptedAnswer":{"@type":"Answer","text":"Most cruises leave from Adamas, the main port of Milos, at 10:00. When strong north wind makes the sea rough, we start from Agia Kyriaki on the south coast instead and let you know in advance."}},{"@type":"Question","name":"How long is the day?","acceptedAnswer":{"@type":"Answer","text":"A full day, from 10:00 to about 17:30. Polyaigos cruises can return a bit later, up to 18:30, depending on the wind."}},{"@type":"Question","name":"What is included in the price?","acceptedAnswer":{"@type":"Answer","text":"The private boat and crew, breakfast, a full Greek-style lunch, an open bar with wine, beer, soft drinks, coffee and juices, plus snorkelling gear, a SUP board and a GoPro."}},{"@type":"Question","name":"How many people can join?","acceptedAnswer":{"@type":"Answer","text":"The price covers up to 8 guests. Up to 10 guests can join, with €50 for each extra person. The boat is always private, only your group is on board."}},{"@type":"Question","name":"We have allergies or eat vegetarian. Is that OK?","acceptedAnswer":{"@type":"Answer","text":"Yes. Tell us when you book and we’ll adapt the menu."}},{"@type":"Question","name":"What happens if the weather is bad?","acceptedAnswer":{"@type":"Answer","text":"Safety comes first. The captain may change the route to calmer water. If we have to cancel because of weather, you get a full refund."}},{"@type":"Question","name":"What should I bring?","acceptedAnswer":{"@type":"Answer","text":"Swimwear, a towel, sunscreen, a hat and sunglasses. Everything else is on board."}}]}]}</script>
+</head>
+<body class="p-home">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="brand" href="#" aria-label="Milos Sail Ways – Home"><svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M15 3 6 22h9z" fill="currentColor"/><path d="M17 6c5 4 7.5 9.5 7.5 16H17z" fill="var(--sun)"/><path d="M3 25.5h26l-3 3.5H6z" fill="currentColor"/></svg><span class="logo-text">Milos <b>Sail Ways</b></span></a>
+    <nav class="main-nav" aria-label="Main"><a href="#">Kleftiko tour</a><a href="#">Polyaigos tour</a><a href="#">Prices</a><a href="#">About us</a><a href="#">Gallery</a><a href="#">Blog</a></nav>
+    <div class="header-tools">
+      <div class="lang" aria-label="Language"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z"/></svg><a href="#" hreflang="en" lang="en" aria-current="true">EN</a><a href="#" hreflang="el" lang="el">EL</a><a href="#" hreflang="fr" lang="fr">FR</a><a href="#" hreflang="es" lang="es">ES</a></div>
+      <a class="btn btn-sun btn-sm" href="#book">Book a day</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" data-open="Menu" data-close="Close menu"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span class="sr">Menu</span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav class="wrap" aria-label="Mobile">
+      <a href="#">Cruises</a><a href="#">Kleftiko tour</a><a href="#">Polyaigos tour</a><a href="#">Prices</a><a href="#">About us</a><a href="#">Gallery</a><a href="#">Blog</a><a href="#book">Contact</a>
+      <div class="lang lang-mobile"><a href="#" hreflang="en" lang="en" aria-current="true">English</a><a href="#" hreflang="el" lang="el">Ελληνικά</a><a href="#" hreflang="fr" lang="fr">Français</a><a href="#" hreflang="es" lang="es">Español</a></div>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="hero">
+  <div class="hero-media"><img class="" src="https://milossailways.gr/wp-content/uploads/2026/01/1762365155181-scaled.jpg" width="2560" height="1707" alt="Private sailing days around Milos" fetchpriority="high" decoding="async"></div>
+  <div class="wrap hero-in">
+    <h1>Private sailing days around Milos</h1>
+    <p class="hero-lead">Sail to Kleftiko or Polyaigos on Kalypso, a 14 m sailing yacht. Only your group on board, with lunch and an open bar.</p>
+    <ul class="chips"><li>Daily 10:00–17:30</li><li>From Adamas port</li><li>Up to 10 guests</li></ul>
+    <div class="btn-row">
+      <a class="btn btn-sun btn-lg" href="#book">Book a day</a>
+      <a class="btn btn-ghost btn-lg" href="https://wa.me/306932977623?text=Hello%20Milos%20Sail%20Ways!%20I%20would%20like%20to%20book%20a%20private%20cruise." rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3 3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8c-1.2-.5-2.2-1.5-2.7-2.7l.8-1-1-2z"/></svg> WhatsApp</a>
+    </div>
+    <p class="hero-price">From <strong>€900</strong> per boat, up to 8 guests</p>
+  </div>
+</section>
+<div class="facts-band"><ul class="facts wrap"><li><svg class="ico ico-lg" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18l-2 4H5zM12 3v12M12 4l7 10h-7M11 6 6 14h5"/></svg><div><strong>Only your group</strong><span>A private boat for up to 10 guests</span></div></li><li><svg class="ico ico-lg" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v8a2 2 0 0 0 2 2v8M10 3v8a2 2 0 0 1-2 2M8 3v6M16 21V3c2.5 1 4 4 4 8h-4"/></svg><div><strong>Lunch & open bar</strong><span>Breakfast, Greek lunch, wine and beer</span></div></li><li><svg class="ico ico-lg" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18c2 0 2-1.5 4-1.5S8 18 10 18s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5M2 22c2 0 2-1.5 4-1.5S8 22 10 22s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5"/><circle cx="16" cy="6" r="2"/><path d="m4 14 5-5 3 3 4-3"/></svg><div><strong>Snorkel & SUP</strong><span>Gear, paddle board and a GoPro on board</span></div></li><li><svg class="ico ico-lg" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><div><strong>Free cancellation</strong><span>Full refund up to 24 h before</span></div></li></ul></div>
+<section class="section" aria-labelledby="routes-h">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="routes-h">Choose your route</h2><p>Two full-day routes. Same boat, same crew, same food. Different scenery.</p></div>
+    <div class="routes"><article class="route-card">
+  <a class="rc-media" href="#" tabindex="-1" aria-hidden="true"><img class="" src="https://milossailways.gr/wp-content/uploads/2026/01/kleftiko-2.jpg" width="1600" height="1067" alt="Kleftiko &amp; West Milos" loading="lazy" decoding="async"></a>
+  <div class="rc-body">
+    <p class="rc-feel">The famous sights</p>
+    <h3><a href="#">Kleftiko & West Milos</a></h3>
+    <p>Sea caves and white rock arches. The classic Milos day.</p>
+    <ol class="mini-route"><li><span>Adamas</span></li><li><span>Klima & Arkoudes</span></li><li><span>Sykia</span></li><li class="lunch"><span>Kleftiko</span></li><li><span>Kalogries</span></li><li><span>Cape Vani</span></li></ol>
+    <p class="rc-meta"><span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 10:00 – 17:30</span><span>From <strong>€900</strong> per boat</span></p>
+    <div class="btn-row">
+      <a class="btn btn-sun" href="#book">Book this route</a>
+      <a class="btn btn-line" href="#">See the route</a>
+    </div>
+  </div>
+</article><article class="route-card">
+  <a class="rc-media" href="#" tabindex="-1" aria-hidden="true"><img class="" src="https://milossailways.gr/wp-content/uploads/2026/01/331.jpg" width="1500" height="1000" alt="Polyaigos &amp; Kimolos" loading="lazy" decoding="async"></a>
+  <div class="rc-body">
+    <p class="rc-feel">Calm water, long swims</p>
+    <h3><a href="#">Polyaigos & Kimolos</a></h3>
+    <p>Turquoise water at the largest uninhabited island in the Aegean. A calm day for swimming.</p>
+    <ol class="mini-route"><li><span>Adamas</span></li><li><span>Kimolos</span></li><li class="lunch"><span>Polyaigos</span></li><li><span>Manolonisi</span></li><li><span>Return</span></li></ol>
+    <p class="rc-meta"><span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 10:00 – 17:30/18:30</span><span>From <strong>€900</strong> per boat</span></p>
+    <div class="btn-row">
+      <a class="btn btn-sun" href="#book">Book this route</a>
+      <a class="btn btn-line" href="#">See the route</a>
+    </div>
+  </div>
+</article></div>
+  </div>
+</section>
+<section class="section boat" aria-labelledby="boat-h">
+  <div class="wrap boat-grid">
+    <div class="boat-media"><img class="" src="https://milossailways.gr/wp-content/uploads/2026/02/1770061476092-1024x1024.jpg" width="1024" height="1024" alt="Kalypso – Dromor Triton 48" loading="lazy" decoding="async"></div>
+    <div class="boat-text">
+      <h2 id="boat-h">Meet Kalypso</h2>
+      <p>A Dromor Triton 48 sailing yacht, designed by Greek naval architect Triantafyllopoulos for Aegean conditions. Lots of shade, a teak deck, showers and four toilets.</p>
+      <dl class="specs-mini">
+        <div><dt>Length</dt><dd>14 m</dd></div>
+        <div><dt>Cabins</dt><dd>5</dd></div>
+        <div><dt>Toilets</dt><dd>4</dd></div>
+        <div><dt>Guests</dt><dd>≤ 10</dd></div>
+      </dl>
+      <a class="link-arrow" href="#">The boat and the crew <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+<section class="section prices-band" aria-labelledby="prices-h">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="prices-h">One price for the whole boat</h2><p>Food, drinks and VAT included. Price for up to 8 guests, €50 for each extra guest up to 10.</p></div>
+    <ol class="season" aria-label="Prices">
+  <li class="" style="--h:69%">
+      <span class="s-price">€900</span>
+      <span class="s-bar" aria-hidden="true"></span>
+      <span class="s-month">Apr</span>
+    </li><li class="" style="--h:77%">
+      <span class="s-price">€1,000</span>
+      <span class="s-bar" aria-hidden="true"></span>
+      <span class="s-month">May</span>
+    </li><li class="" style="--h:92%">
+      <span class="s-price">€1,200</span>
+      <span class="s-bar" aria-hidden="true"></span>
+      <span class="s-month">Jun</span>
+    </li><li class="peak" style="--h:100%">
+      <span class="s-price">€1,300</span>
+      <span class="s-bar" aria-hidden="true"></span>
+      <span class="s-month">Jul</span>
+    </li><li class="peak" style="--h:100%">
+      <span class="s-price">€1,300</span>
+      <span class="s-bar" aria-hidden="true"></span>
+      <span class="s-month">Aug</span>
+    </li><li class="peak" style="--h:100%">
+      <span class="s-price">€1,300</span>
+      <span class="s-bar" aria-hidden="true"></span>
+      <span class="s-month">Sep</span>
+    </li><li class="" style="--h:77%">
+      <span class="s-price">€1,000</span>
+      <span class="s-bar" aria-hidden="true"></span>
+      <span class="s-month">Oct<small>≤15</small></span>
+    </li>
+</ol>
+    <p class="prices-link"><a class="link-arrow" href="#">Prices <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+  </div>
+</section>
+<section class="section" aria-labelledby="gal-h">
+  <div class="wrap">
+    <div class="sec-head sec-head-row"><h2 id="gal-h">From our days at sea</h2>
+      <p><a class="link-arrow" href="#">See all photos <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p></div>
+    <div class="mosaic"><a href="#" class="m1"><img class="" src="https://milossailways.gr/wp-content/uploads/2026/02/1770061475811.jpg" width="1200" height="900" alt="Private sailing cruise around Milos aboard Kalypso – 1" loading="lazy" decoding="async"></a><a href="#" class="m2"><img class="" src="https://milossailways.gr/wp-content/uploads/2026/02/DSC_3043.jpg" width="1200" height="900" alt="Private sailing cruise around Milos aboard Kalypso – 2" loading="lazy" decoding="async"></a><a href="#" class="m3"><img class="" src="https://milossailways.gr/wp-content/uploads/2026/07/IMG_20260709_143438.jpg" width="1200" height="900" alt="Private sailing cruise around Milos aboard Kalypso – 3" loading="lazy" decoding="async"></a><a href="#" class="m4"><img class="" src="https://milossailways.gr/wp-content/uploads/2026/02/1770061475682.jpg" width="1200" height="900" alt="Private sailing cruise around Milos aboard Kalypso – 4" loading="lazy" decoding="async"></a><a href="#" class="m5"><img class="" src="https://milossailways.gr/wp-content/uploads/2026/07/IMG20260702122417.jpg" width="1200" height="900" alt="Private sailing cruise around Milos aboard Kalypso – 5" loading="lazy" decoding="async"></a></div>
+    <p class="ig-link"><a href="https://www.instagram.com/milos_sailways/" rel="noopener" target="_blank"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg> Follow us on Instagram</a></p>
+  </div>
+</section>
+<section class="section faq" aria-labelledby="faq-h">
+  <div class="wrap narrow">
+    <h2 id="faq-h">Good to know</h2>
+    <details><summary>Where does the cruise start?</summary><p>Most cruises leave from Adamas, the main port of Milos, at 10:00. When strong north wind makes the sea rough, we start from Agia Kyriaki on the south coast instead and let you know in advance.</p></details><details><summary>How long is the day?</summary><p>A full day, from 10:00 to about 17:30. Polyaigos cruises can return a bit later, up to 18:30, depending on the wind.</p></details><details><summary>What is included in the price?</summary><p>The private boat and crew, breakfast, a full Greek-style lunch, an open bar with wine, beer, soft drinks, coffee and juices, plus snorkelling gear, a SUP board and a GoPro.</p></details><details><summary>How many people can join?</summary><p>The price covers up to 8 guests. Up to 10 guests can join, with €50 for each extra person. The boat is always private, only your group is on board.</p></details><details><summary>We have allergies or eat vegetarian. Is that OK?</summary><p>Yes. Tell us when you book and we’ll adapt the menu.</p></details><details><summary>What happens if the weather is bad?</summary><p>Safety comes first. The captain may change the route to calmer water. If we have to cancel because of weather, you get a full refund.</p></details><details><summary>What should I bring?</summary><p>Swimwear, a towel, sunscreen, a hat and sunglasses. Everything else is on board.</p></details>
+  </div>
+</section>
+<section class="section book-band" id="book" aria-label="Request your date">
+  <div class="wrap narrow"><form class="booking" id="booking" novalidate data-cfg='{&quot;phone&quot;:&quot;306932977623&quot;,&quot;email&quot;:&quot;info@milossailways.gr&quot;,&quot;locale&quot;:&quot;en-GB&quot;,&quot;season&quot;:{&quot;start&quot;:[4,1],&quot;end&quot;:[10,15]},&quot;pricing&quot;:{&quot;baseGuests&quot;:8,&quot;maxGuests&quot;:10,&quot;extraGuest&quot;:50,&quot;months&quot;:[{&quot;months&quot;:[4],&quot;price&quot;:900},{&quot;months&quot;:[5],&quot;price&quot;:1000},{&quot;months&quot;:[6],&quot;price&quot;:1200},{&quot;months&quot;:[7,8,9],&quot;price&quot;:1300},{&quot;months&quot;:[10],&quot;price&quot;:1000,&quot;untilDay&quot;:15}]},&quot;msg&quot;:{&quot;intro&quot;:&quot;Hello Milos Sail Ways! I would like to book a private cruise.&quot;,&quot;route&quot;:&quot;Route&quot;,&quot;date&quot;:&quot;Date&quot;,&quot;guests&quot;:&quot;Guests&quot;,&quot;name&quot;:&quot;Name&quot;,&quot;contact&quot;:&quot;Contact&quot;,&quot;estimate&quot;:&quot;Estimated price&quot;,&quot;subject&quot;:&quot;Cruise request&quot;},&quot;txt&quot;:{&quot;pick&quot;:&quot;Pick a date to see the price&quot;,&quot;out&quot;:&quot;We sail from 1 April to 15 October. Please choose a date in that period.&quot;,&quot;required&quot;:&quot;Please fill in date, name and contact.&quot;,&quot;note&quot;:&quot;for the whole boat, VAT included&quot;}}'>
+  <h2 class="bk-title">Request your date</h2><p class="bk-lead">Send us your date and group size and we’ll confirm availability.</p>
+  <fieldset class="bk-route">
+    <legend>Route</legend>
+    <label><input type="radio" name="route" value="kleftiko" checked data-label="Kleftiko &amp; West Milos"><span>Kleftiko & West Milos</span></label><label><input type="radio" name="route" value="polyaigos" data-label="Polyaigos &amp; Kimolos"><span>Polyaigos & Kimolos</span></label><label><input type="radio" name="route" value="unsure" data-label="Not sure yet, advise us"><span>Not sure yet, advise us</span></label>
+  </fieldset>
+  <div class="bk-grid">
+    <label class="fld"><span>Date</span><input type="date" id="bk-date" name="date" required></label>
+    <label class="fld"><span>Guests</span><select id="bk-guests" name="guests"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4" selected>4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></label>
+    <label class="fld"><span>Your name</span><input type="text" id="bk-name" name="name" autocomplete="name" required></label>
+    <label class="fld"><span>Email or phone</span><input type="text" id="bk-contact" name="contact" autocomplete="email" required></label>
+    <label class="fld fld-wide"><span>Anything else? (optional)</span><textarea id="bk-msg" name="message" rows="3" placeholder="Allergies, a birthday on board, questions…"></textarea></label>
+  </div>
+  <div class="bk-estimate" aria-live="polite">
+    <span class="bk-est-label">Price for your group</span>
+    <output id="bk-out" for="bk-date bk-guests">Pick a date to see the price</output>
+  </div>
+  <p class="bk-error" id="bk-error" role="alert" hidden></p>
+  <div class="btn-row">
+    <button class="btn btn-sun btn-lg" type="submit" value="wa"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3 3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8c-1.2-.5-2.2-1.5-2.7-2.7l.8-1-1-2z"/></svg> Send on WhatsApp</button>
+    <button class="btn btn-line btn-lg" type="submit" value="mail"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> Send by email</button>
+  </div>
+  <p class="bk-note">Nothing is booked until we confirm. No payment needed to ask.</p>
+</form></div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="f-brand">
+      <a class="brand brand-light" href="#"><svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M15 3 6 22h9z" fill="currentColor"/><path d="M17 6c5 4 7.5 9.5 7.5 16H17z" fill="var(--sun)"/><path d="M3 25.5h26l-3 3.5H6z" fill="currentColor"/></svg><span class="logo-text">Milos <b>Sail Ways</b></span></a>
+      <p>Private sailing cruises around Milos, Cyclades.</p>
+      <div class="social">
+        <a href="https://www.instagram.com/milos_sailways/" rel="noopener" target="_blank" aria-label="Instagram"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61583559621736" rel="noopener" target="_blank" aria-label="Facebook"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 21v-8h3l.5-3.5H14V7.5c0-1 .4-1.7 1.8-1.7H18V2.6A24 24 0 0 0 15.4 2.4C12.8 2.4 11 4 11 7v2.5H8V13h3v8"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h2 class="f-title">Contact</h2>
+      <ul class="f-list">
+        <li><a href="https://wa.me/306932977623" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3 3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8c-1.2-.5-2.2-1.5-2.7-2.7l.8-1-1-2z"/></svg> WhatsApp</a></li>
+        <li><a href="viber://chat?number=%2B306932977623"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c5 0 8.5 2.2 8.5 7.5S17 18 12 18l-4 3v-3.6C5 16.3 3.5 14 3.5 10.5 3.5 5.2 7 3 12 3z"/><path d="M9.5 8c0 3 2.5 5.5 5.5 5.5l.8-1.3-1.7-.9-.8.7a4 4 0 0 1-2-2l.7-.8-.9-1.7z"/></svg> Viber</a></li>
+        <li><a href="tel:+306932977623"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg> +30 693 297 7623</a></li>
+        <li><a href="mailto:info@milossailways.gr"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> info@milossailways.gr</a></li>
+        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg> Mersinia, Milos, 848 00</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="f-title">Explore</h2>
+      <ul class="f-list">
+        <li><a href="#">Cruises</a></li><li><a href="#">Kleftiko tour</a></li><li><a href="#">Polyaigos tour</a></li><li><a href="#">Prices</a></li><li><a href="#">About us</a></li><li><a href="#">Gallery</a></li><li><a href="#">Blog</a></li><li><a href="#book">Contact</a></li><li><a href="#">Cancellation policy</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="f-title">Office hours</h2>
+      <p class="f-hours"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 10:00–19:00</p>
+      <p class="f-small">Season: 1 April – 15 October</p>
+    </div>
+  </div>
+  <div class="wrap f-bottom"><p>© 2026 Milos Sail Ways. All rights reserved.</p></div>
+</footer>
+<div class="action-bar" role="navigation" aria-label="Book a day">
+  <a class="ab-wa" href="https://wa.me/306932977623?text=Hello%20Milos%20Sail%20Ways!%20I%20would%20like%20to%20book%20a%20private%20cruise." rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3 3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8c-1.2-.5-2.2-1.5-2.7-2.7l.8-1-1-2z"/></svg><span>WhatsApp</span></a>
+  <a class="ab-book" href="#book">Book a day</a>
+</div>
+<script>
+/* Milos Sail Ways – small, dependency-free site script */
+(function () {
+  'use strict';
+
+  /* Hide broken images, keep the coloured placeholder behind them */
+  document.querySelectorAll('img').forEach(function (img) {
+    var miss = function () {
+      if (img.classList.contains('img-missing')) return;
+      img.classList.add('img-missing');
+      img.removeAttribute('srcset');
+      img.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22/%3E';
+    };
+    if (img.complete && img.naturalWidth === 0) miss();
+    img.addEventListener('error', miss);
+  });
+
+  /* Mobile menu */
+  var btn = document.querySelector('.menu-btn');
+  var menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      menu.hidden = open;
+      btn.querySelector('.sr').textContent = open ? btn.dataset.open : btn.dataset.close;
+      document.body.style.overflow = open ? '' : 'hidden';
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !menu.hidden) { btn.click(); btn.focus(); }
+    });
+  }
+
+  /* Booking request form → WhatsApp or e-mail with a prefilled message */
+  var form = document.getElementById('booking');
+  if (form) {
+    var cfg = JSON.parse(form.dataset.cfg);
+    var date = form.querySelector('#bk-date');
+    var guests = form.querySelector('#bk-guests');
+    var out = form.querySelector('#bk-out');
+    var err = form.querySelector('#bk-error');
+    var money = new Intl.NumberFormat(cfg.locale, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+
+    // Allowed date range: today (or season start) → season end, this or next season
+    var now = new Date();
+    var y = now.getFullYear();
+    var pad = function (n) { return String(n).padStart(2, '0'); };
+    var iso = function (d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); };
+    var seasonEnd = new Date(y, cfg.season.end[0] - 1, cfg.season.end[1]);
+    if (now > seasonEnd) y += 1;
+    var minD = new Date(Math.max(now.getTime(), new Date(y, cfg.season.start[0] - 1, cfg.season.start[1]).getTime()));
+    date.min = iso(minD);
+    date.max = (y + 1) + '-' + pad(cfg.season.end[0]) + '-' + pad(cfg.season.end[1]);
+
+    // Preselect route from ?route=
+    var qs = new URLSearchParams(location.search).get('route');
+    if (qs) {
+      var r = form.querySelector('input[name="route"][value="' + qs + '"]');
+      if (r) r.checked = true;
+    }
+
+    function priceFor(dStr, n) {
+      if (!dStr) return null;
+      var p = dStr.split('-').map(Number);
+      var m = p[1], day = p[2];
+      var row = cfg.pricing.months.find(function (r) {
+        return r.months.indexOf(m) > -1 && (!r.untilDay || day <= r.untilDay);
+      });
+      if (!row) return -1;
+      return row.price + Math.max(0, n - cfg.pricing.baseGuests) * cfg.pricing.extraGuest;
+    }
+
+    function update() {
+      var p = priceFor(date.value, Number(guests.value));
+      if (p === null) out.textContent = cfg.txt.pick;
+      else if (p === -1) out.textContent = cfg.txt.out;
+      else out.innerHTML = '<strong>' + money.format(p) + '</strong><small>' + cfg.txt.note + '</small>';
+      return p;
+    }
+    date.addEventListener('change', update);
+    date.addEventListener('input', update);
+    guests.addEventListener('change', update);
+    update();
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var via = (e.submitter && e.submitter.value) || 'wa';
+      var name = form.querySelector('#bk-name');
+      var contact = form.querySelector('#bk-contact');
+      var msg = form.querySelector('#bk-msg');
+      var bad = [date, name, contact].filter(function (el) { return !el.value.trim(); });
+      [date, name, contact].forEach(function (el) { el.setAttribute('aria-invalid', String(bad.indexOf(el) > -1)); });
+      var price = priceFor(date.value, Number(guests.value));
+      if (bad.length) { err.textContent = cfg.txt.required; err.hidden = false; bad[0].focus(); return; }
+      if (price === -1) { err.textContent = cfg.txt.out; err.hidden = false; date.focus(); return; }
+      err.hidden = true;
+
+      var route = form.querySelector('input[name="route"]:checked');
+      var lines = [
+        cfg.msg.intro, '',
+        cfg.msg.route + ': ' + (route ? route.dataset.label : ''),
+        cfg.msg.date + ': ' + date.value,
+        cfg.msg.guests + ': ' + guests.value,
+        cfg.msg.name + ': ' + name.value.trim(),
+        cfg.msg.contact + ': ' + contact.value.trim(),
+      ];
+      if (price > 0) lines.push(cfg.msg.estimate + ': ' + money.format(price));
+      if (msg.value.trim()) lines.push('', msg.value.trim());
+      var text = lines.join('\n');
+
+      if (via === 'mail') {
+        location.href = 'mailto:' + cfg.email + '?subject=' + encodeURIComponent(cfg.msg.subject + ' – ' + date.value) + '&body=' + encodeURIComponent(text);
+      } else {
+        window.open('https://wa.me/' + cfg.phone + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
+      }
+    });
+  }
+
+  /* Gallery lightbox */
+  var gal = document.querySelector('[data-lightbox]');
+  if (gal) {
+    var labels = JSON.parse(gal.dataset.labels);
+    var links = Array.prototype.slice.call(gal.querySelectorAll('a'));
+    var box, img, count, idx = 0, lastFocus;
+    function show(i) {
+      idx = (i + links.length) % links.length;
+      img.src = links[idx].dataset.full;
+      img.alt = links[idx].querySelector('img').alt;
+      count.textContent = (idx + 1) + ' ' + labels.of + ' ' + links.length;
+    }
+    function close() { box.remove(); box = null; document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
+    function open(i) {
+      lastFocus = document.activeElement;
+      box = document.createElement('div');
+      box.className = 'lightbox';
+      box.setAttribute('role', 'dialog');
+      box.setAttribute('aria-modal', 'true');
+      box.innerHTML = '<img alt=""><button class="lb-close" type="button" aria-label="' + labels.close + '">✕</button>' +
+        '<button class="lb-prev" type="button" aria-label="' + labels.prev + '">‹</button>' +
+        '<button class="lb-next" type="button" aria-label="' + labels.next + '">›</button><span class="lb-count"></span>';
+      document.body.appendChild(box);
+      document.body.style.overflow = 'hidden';
+      img = box.querySelector('img'); count = box.querySelector('.lb-count');
+      box.querySelector('.lb-close').onclick = close;
+      box.querySelector('.lb-prev').onclick = function () { show(idx - 1); };
+      box.querySelector('.lb-next').onclick = function () { show(idx + 1); };
+      box.addEventListener('click', function (e) { if (e.target === box) close(); });
+      var sx = 0;
+      box.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+      box.addEventListener('touchend', function (e) { var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) show(idx + (dx < 0 ? 1 : -1)); });
+      show(i);
+      box.querySelector('.lb-close').focus();
+    }
+    links.forEach(function (a, i) { a.addEventListener('click', function (e) { e.preventDefault(); open(i); }); });
+    document.addEventListener('keydown', function (e) {
+      if (!box) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') show(idx + 1);
+      if (e.key === 'ArrowLeft') show(idx - 1);
+    });
+  }
+})();
+
+</script>
+</body>
+</html>

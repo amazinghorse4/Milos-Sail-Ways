@@ -1,0 +1,16 @@
+{
+  "name": "milos-sail-ways",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Static multilingual website for Milos Sail Ways (EN/EL/FR/ES)",
+  "scripts": {
+    "migrate": "node tools/migrate.mjs",
+    "build": "node build.mjs",
+    "preview": "node build.mjs && node tools/serve.mjs"
+  },
+  "engines": { "node": ">=18" },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

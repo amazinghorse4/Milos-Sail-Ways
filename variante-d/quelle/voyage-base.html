@@ -1,0 +1,707 @@
+<title>Milos Sail Ways Voyage</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Noto+Sans:wght@400;500;700&family=Caveat:wght@600;700&display=swap">
+<style>
+/* Variant D – "the voyage": the page IS the day. Scroll = the clock from 10:00 to 17:30.
+   A live-drawn sea, sky and sun; the boat sails past the real stops; booking waits at sunset. */
+:root {
+  --ink: #0d2236;
+  --white: #ffffff;
+  --glass: rgba(255,255,255,.82);
+  --sunset: #ff7a4d;
+  --sun: #ffc93c;
+  --sea: #0b6fa8;
+  --muted: #3d5468;
+  --display: "Syne", "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  --sans: "Noto Sans", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #9ad4f5; color: var(--ink); font-family: var(--sans); font-size: 1.05rem; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+#sea { position: fixed; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; touch-action: pan-y; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--sunset); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); margin: 0 0 .35em; line-height: .95; text-wrap: balance; }
+
+/* chrome */
+.bar { position: fixed; top: 0; left: 0; right: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: calc(12px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 12px max(16px, env(safe-area-inset-left, 0px)); pointer-events: none; }
+.bar > * { pointer-events: auto; }
+.logo { font-family: var(--display); font-weight: 800; font-size: 1.05rem; color: var(--white); text-decoration: none; text-shadow: 0 1px 12px rgba(13,34,54,.35); letter-spacing: .01em; }
+.clock { display: flex; align-items: center; gap: 10px; background: rgba(13,34,54,.55); color: var(--white); backdrop-filter: blur(8px); padding: 8px 14px; border-radius: 999px; font-family: var(--display); font-weight: 700; font-variant-numeric: tabular-nums; }
+.clock-face { width: 22px; height: 22px; }
+.clock small { font-family: var(--sans); font-weight: 500; font-size: .78rem; opacity: .8; }
+.track { position: fixed; z-index: 20; left: max(16px, env(safe-area-inset-left, 0px)); top: 50%; transform: translateY(-50%); display: none; flex-direction: column; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.track a { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--white); font-size: .78rem; font-weight: 700; text-shadow: 0 1px 8px rgba(13,34,54,.5); opacity: .55; transition: opacity .2s; }
+.track a::before { content: ""; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--white); }
+.track a.on { opacity: 1; }
+.track a.on::before { background: var(--sun); border-color: var(--sun); }
+@media (min-width: 1440px) { .track { display: flex; } }
+.cta { position: fixed; z-index: 20; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); display: flex; gap: 8px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5em; min-height: 50px; padding: .7em 1.4em; border-radius: 999px; border: 0; font-family: var(--display); font-weight: 800; font-size: 1rem; text-decoration: none; cursor: pointer; transition: transform .15s; }
+.btn:hover { transform: translateY(-2px); }
+.btn-sun { background: var(--sun); color: var(--ink); box-shadow: 0 8px 24px rgba(13,34,54,.25); }
+.btn-ink { background: var(--ink); color: var(--white); }
+.btn-wa { background: #1f9e57; color: var(--white); box-shadow: 0 8px 24px rgba(13,34,54,.25); }
+
+/* chapters */
+main { position: relative; z-index: 10; }
+.ch { min-height: 100svh; display: flex; align-items: center; padding: 110px max(16px, env(safe-area-inset-right, 0px)) 110px max(16px, env(safe-area-inset-left, 0px)); }
+.ch-in { width: 100%; max-width: 1180px; margin: 0 auto; display: flex; }
+.ch.right .ch-in { justify-content: flex-end; }
+.card { max-width: 440px; background: var(--glass); backdrop-filter: blur(14px) saturate(1.3); -webkit-backdrop-filter: blur(14px) saturate(1.3); padding: 26px 28px 24px; border-radius: 28px 28px 28px 6px; box-shadow: 0 20px 60px rgba(13,34,54,.18); }
+.ch.right .card { border-radius: 28px 28px 6px 28px; }
+.when { display: inline-block; font-family: var(--display); font-weight: 700; font-size: .85rem; background: var(--ink); color: var(--white); padding: 4px 12px; border-radius: 999px; margin-bottom: 14px; }
+.card h2 { font-size: clamp(2.1rem, 5vw, 3.3rem); font-weight: 800; letter-spacing: -.02em; }
+.card p { color: var(--muted); margin: 0; }
+.card { transition: transform .9s cubic-bezier(.2,.8,.2,1), opacity .9s; border: 1px solid rgba(255,255,255,.6); }
+.js-motion .card.pre { transform: translateY(36px) rotate(-1deg); opacity: .4; }
+.js-motion .ch.right .card.pre { transform: translateY(36px) rotate(1deg); }
+.card .when { box-shadow: 0 4px 14px rgba(13,34,54,.18); }
+.card h2 { background: linear-gradient(90deg, #0d2236, #0b6fa8); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .04em; }
+.hint { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-size: .82rem; font-weight: 700; color: var(--sea); }
+.card ul { margin: 12px 0 0; padding-left: 1.1em; color: var(--muted); }
+
+/* hero */
+.hero { background: radial-gradient(ellipse 60% 45% at 50% 45%, rgba(13,34,54,.28), rgba(13,34,54,0) 70%); min-height: 100svh; display: grid; align-content: center; justify-items: center; text-align: center; color: var(--white); padding: 120px max(16px, env(safe-area-inset-right, 0px)) 80px max(16px, env(safe-area-inset-left, 0px)); }
+.hero h1 { font-size: clamp(3.4rem, 15vw, 12rem); font-weight: 800; letter-spacing: -.045em; line-height: .82; text-shadow: 0 4px 40px rgba(13,34,54,.25); }
+.hero h1 span { display: block; font-size: .42em; letter-spacing: -.02em; }
+.hero p { font-size: clamp(1.1rem, 2.4vw, 1.4rem); max-width: 30ch; margin: 18px 0 30px; text-shadow: 0 1px 3px rgba(13,34,54,.55), 0 2px 18px rgba(13,34,54,.45); font-weight: 600; }
+.scroll-hint { display: inline-flex; flex-direction: column; align-items: center; gap: 8px; font-family: var(--display); font-weight: 700; text-decoration: none; color: var(--white); }
+.scroll-hint svg { width: 26px; height: 40px; animation: bob 1.8s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(8px); } }
+.skip { margin-top: 18px; font-size: .9rem; color: var(--white); text-shadow: 0 1px 6px rgba(13,34,54,.6); }
+
+/* polaroids */
+.card { position: relative; }
+.pola { position: absolute; z-index: 2; top: -34px; width: 200px; margin: 0; padding: 10px 10px 0; background: #fff; box-shadow: 0 14px 34px rgba(13,34,54,.28), 0 2px 6px rgba(13,34,54,.12); transform: rotate(4deg); transition: transform .9s cubic-bezier(.2,.9,.25,1.3) .15s, opacity .6s .15s; }
+.ch:not(.right) .pola { right: -176px; }
+.ch.right .pola { left: -176px; transform: rotate(-5deg); }
+.pola .ph { aspect-ratio: 1; overflow: hidden; background: linear-gradient(150deg, #9ad8f0, #0b6fa8 70%, #0d2236); display: grid; place-items: center; }
+.pola .ph svg { width: 34px; height: 34px; color: rgba(255,255,255,.75); }
+.pola img { width: 100%; height: 100%; object-fit: cover; display: block; grid-area: 1 / 1; }
+.pola figcaption { font-family: "Caveat", "Comic Sans MS", cursive; font-weight: 700; font-size: 1.3rem; line-height: 1.1; color: #2a3b4c; padding: 9px 4px 12px; text-align: center; }
+.pola::before { content: ""; position: absolute; top: -12px; left: 50%; width: 74px; height: 22px; transform: translateX(-50%) rotate(-3deg); background: rgba(255,232,170,.75); box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+.js-motion .card.pre .pola { transform: translateY(40px) rotate(18deg) scale(.7); opacity: 0; }
+.js-motion .ch.right .card.pre .pola { transform: translateY(40px) rotate(-18deg) scale(.7); }
+@media (max-width: 1100px) { .pola { width: 160px; } .ch:not(.right) .pola { right: -120px; } .ch.right .pola { left: -120px; } }
+@media (max-width: 860px) {
+  .card { margin-bottom: 130px; }
+  .pola { width: 118px; top: calc(100% - 8px); padding: 6px 6px 0; }
+  .ch:not(.right) .pola { right: 8px; }
+  .ch.right .pola { left: auto; right: 8px; transform: rotate(4deg); }
+  .pola figcaption { font-size: 1rem; padding: 5px 2px 7px; }
+  .pola::before { width: 50px; height: 16px; top: -9px; }
+}
+.trips { display: flex; justify-content: center; gap: 0; margin: 0 auto 30px; padding: 14px 8px 18px; overflow-x: auto; scroll-snap-type: x mandatory; }
+.trips figure { flex: none; width: 150px; margin: 0 -6px; padding: 7px 7px 0; background: #fff; box-shadow: 0 12px 28px rgba(13,34,54,.3); scroll-snap-align: center; transition: transform .25s; }
+.trips figure:nth-child(odd) { transform: rotate(-4deg); }
+.trips figure:nth-child(even) { transform: rotate(3deg) translateY(10px); }
+.trips figure:hover { transform: rotate(0) translateY(-8px) scale(1.06); z-index: 2; position: relative; }
+.trips .ph { aspect-ratio: 1; overflow: hidden; background: linear-gradient(150deg, #ffcf9e, #ff7a4d 60%, #5d5a92); }
+.trips img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.trips figcaption { font-family: "Caveat", "Comic Sans MS", cursive; font-weight: 700; font-size: 1.1rem; color: #2a3b4c; text-align: center; padding: 5px 2px 7px; }
+.trips-label { text-align: center; color: var(--white); font-family: "Caveat", cursive; font-size: 1.6rem; margin: 0 0 4px; text-shadow: 0 1px 10px rgba(13,34,54,.4); }
+@media (max-width: 700px) { .trips { justify-content: flex-start; } .trips figure { width: 130px; } }
+
+/* booking at sunset */
+.book { min-height: 100svh; display: grid; align-content: center; padding: 120px max(16px, env(safe-area-inset-right, 0px)) 140px max(16px, env(safe-area-inset-left, 0px)); }
+.book-in { max-width: 760px; margin: 0 auto; width: 100%; min-width: 0; }
+.book h2 { color: var(--white); font-size: clamp(2.6rem, 8vw, 5.6rem); font-weight: 800; letter-spacing: -.035em; text-align: center; text-shadow: 0 4px 30px rgba(13,34,54,.3); }
+.book .sub { color: var(--white); text-align: center; font-size: 1.15rem; margin: 0 auto 28px; max-width: 40ch; }
+.form { background: var(--white); border-radius: 28px; padding: clamp(20px, 4vw, 34px); display: grid; gap: 18px; box-shadow: 0 30px 80px rgba(13,34,54,.3); }
+.routes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.routes label { position: relative; }
+.routes input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.routes span { display: block; height: 100%; padding: 14px 16px; border: 2px solid #dde6ee; border-radius: 18px; cursor: pointer; font-family: var(--display); font-weight: 700; line-height: 1.2; }
+.routes small { display: block; font-family: var(--sans); font-weight: 400; color: var(--muted); font-size: .85rem; margin-top: 4px; }
+.routes input:checked + span { border-color: var(--ink); background: #fff6e0; }
+.routes input:focus-visible + span { outline: 3px solid var(--sunset); outline-offset: 2px; }
+.row { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 560px) { .row { grid-template-columns: 1.3fr 1fr; } }
+.fld label { display: block; font-weight: 700; font-size: .92rem; margin-bottom: 6px; }
+.fld input { width: 100%; min-height: 52px; border: 2px solid #dde6ee; border-radius: 14px; padding: 10px 14px; font: inherit; color: var(--ink); background: var(--white); }
+.fld input:focus { outline: none; border-color: var(--ink); }
+.step { display: grid; grid-template-columns: 52px 1fr 52px; border: 2px solid #dde6ee; border-radius: 14px; overflow: hidden; }
+.step button { border: 0; background: #f2f6f9; font-size: 1.4rem; font-weight: 800; color: var(--ink); cursor: pointer; min-height: 48px; }
+.step button:disabled { color: #c3cfd9; cursor: default; }
+.step output { display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 1.2rem; }
+.total { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; padding-top: 18px; border-top: 2px dashed #dde6ee; }
+.total b { font-family: var(--display); font-size: 2.4rem; line-height: 1; }
+.total small { display: block; color: var(--muted); font-size: .85rem; margin-top: 4px; }
+.err { margin: 0; color: #c0392b; font-weight: 700; }
+.fine { margin: 0; font-size: .88rem; color: var(--muted); }
+.facts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; list-style: none; padding: 0; margin: 26px 0 0; color: var(--white); font-weight: 600; text-shadow: 0 1px 10px rgba(13,34,54,.4); }
+.foot { position: relative; z-index: 10; text-align: center; color: var(--white); font-size: .88rem; padding: 0 16px calc(96px + env(safe-area-inset-bottom, 0px)); opacity: .9; }
+.foot span { user-select: all; }
+
+@media (max-width: 560px) {
+  .ch { align-items: flex-start; padding-top: 84px; }
+  .card { padding: 18px 18px 16px; }
+  .card h2 { font-size: 2rem; }
+  .card p { font-size: .95rem; line-height: 1.5; }
+  .clock small { display: none; }
+  .cta .btn { min-height: 46px; padding: .6em 1.1em; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .scroll-hint svg { animation: none; } .btn { transition: none; } }
+</style>
+
+<canvas id="sea" aria-hidden="true"></canvas>
+
+<header class="bar">
+  <a class="logo" href="#start">MILOS SAIL WAYS</a>
+  <div class="clock" aria-live="off" title="Your day on board">
+    <svg class="clock-face" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><line id="hand-h" x1="12" y1="12" x2="12" y2="7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><line id="hand-m" x1="12" y1="12" x2="12" y2="4.5" stroke="#ffc93c" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <span id="time">10:00</span><small id="where">Adamas</small>
+  </div>
+</header>
+
+<nav aria-label="Stops"><ol class="track" id="track">
+  <li><a href="#adamas">Adamas</a></li><li><a href="#klima">Klima</a></li><li><a href="#sykia">Sykia</a></li><li><a href="#kleftiko">Kleftiko</a></li><li><a href="#kalogries">Kalogries</a></li><li><a href="#home">Back in port</a></li><li><a href="#book">Book</a></li>
+</ol></nav>
+
+<div class="cta"><a class="btn btn-wa" href="https://wa.me/306932977623" target="_blank" rel="noopener">WhatsApp</a><a class="btn btn-sun" href="#book">Book a day</a></div>
+
+<main>
+  <section class="hero" id="start">
+    <h1>Sail<span>Milos</span></h1>
+    <p>A private sailing day on Kalypso. Scroll, and spend it with us, from 10:00 to sunset.</p>
+    <a class="scroll-hint" href="#adamas">Cast off<svg viewBox="0 0 26 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="22" height="36" rx="11"/><line x1="13" y1="10" x2="13" y2="17"/></svg></a>
+    <a class="skip" href="#book">Skip the voyage, go straight to booking</a>
+  </section>
+
+  <section class="ch" id="adamas" data-stop="Adamas"><div class="ch-in"><div class="card">
+    <span class="when">10:00 · Adamas</span>
+    <h2>Cast off</h2>
+    <p>Step aboard Kalypso, a 14 m sailing yacht, at the main port. Coffee and breakfast on deck while we sail out of the bay. Only your group on board, up to 10 guests.</p>
+    <span class="hint">Tip: tap the sea and see who comes to say hello.</span>
+  
+    <figure class="pola"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><img src="https://milossailways.gr/wp-content/uploads/2026/01/1762365155181-scaled.jpg" alt="Kalypso ready to sail in Milos" loading="lazy"></div><figcaption>10:00, off we go!</figcaption></figure>
+  </div></div></section>
+
+  <section class="ch right" id="klima" data-stop="Klima"><div class="ch-in"><div class="card">
+    <span class="when">Morning · Klima</span>
+    <h2>Colourful boathouses</h2>
+    <p>The fishermen's houses of Klima and Arkoudes, painted doors right at the waterline. Have your camera ready.</p>
+  </div></div></section>
+
+  <section class="ch" id="sykia" data-stop="Sykia"><div class="ch-in"><div class="card">
+    <span class="when">Late morning · Sykia</span>
+    <h2>The wild side</h2>
+    <p>A rarely visited corner of the west coast. Deep turquoise water, steep volcanic rock, and silence.</p>
+  </div></div></section>
+
+  <section class="ch right" id="kleftiko" data-stop="Kleftiko"><div class="ch-in"><div class="card">
+    <span class="when">Midday · Kleftiko</span>
+    <h2>Jump in.</h2>
+    <p>White rock arches and sea caves, reachable only by boat. Swim, snorkel, paddle the SUP, film it with our GoPro. Then a full Greek lunch on board, with wine and beer from the open bar.</p>
+  
+    <figure class="pola"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><img src="https://milossailways.gr/wp-content/uploads/2026/01/kleftiko-2.jpg" alt="The white rocks of Kleftiko" loading="lazy"></div><figcaption>Kleftiko. Wow.</figcaption></figure>
+  </div></div></section>
+
+  <section class="ch" id="kalogries" data-stop="Kalogries"><div class="ch-in"><div class="card">
+    <span class="when">Afternoon · Kalogries</span>
+    <h2>One more swim</h2>
+    <p>A last stop in clear water on the way back. Or a nap in the shade. Your call.</p>
+  
+    <figure class="pola"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><img src="https://milossailways.gr/wp-content/uploads/2026/07/GOPR1786_1785240440666.jpg" alt="A photo from the GoPro on board" loading="lazy"></div><figcaption>straight from the GoPro</figcaption></figure>
+  </div></div></section>
+
+  <section class="ch right" id="home" data-stop="Adamas"><div class="ch-in"><div class="card">
+    <span class="when">17:30 · Cape Vani → Adamas</span>
+    <h2>Golden hour</h2>
+    <p>We round Cape Vani and sail home in the warm afternoon light. Windy day? Then we start from Agia Kyriaki in the south instead, and you still get Kleftiko.</p>
+  </div></div></section>
+
+  <section class="book" id="book" data-stop="Book" aria-labelledby="book-h">
+    <div class="book-in">
+      <h2 id="book-h">Your turn.</h2>
+      <p class="sub">Pick a route, a date and your crew. We confirm on WhatsApp.</p>
+      <p class="trips-label">Real photos from our trips</p>
+      <div class="trips"><figure><div class="ph"><img src="https://milossailways.gr/wp-content/uploads/2026/02/1770061476092-1024x1024.jpg" alt="Kalypso, the sailing yacht" loading="lazy"></div><figcaption>our Kalypso</figcaption></figure><figure><div class="ph"><img src="https://milossailways.gr/wp-content/uploads/2026/02/1770061475811.jpg" alt="Guests on board" loading="lazy"></div><figcaption>life on deck</figcaption></figure><figure><div class="ph"><img src="https://milossailways.gr/wp-content/uploads/2026/01/331.jpg" alt="Turquoise water at Polyaigos" loading="lazy"></div><figcaption>Polyaigos</figcaption></figure><figure><div class="ph"><img src="https://milossailways.gr/wp-content/uploads/2026/02/DSC_3043.jpg" alt="A day at sea in Milos" loading="lazy"></div><figcaption>swim stop</figcaption></figure><figure><div class="ph"><img src="https://milossailways.gr/wp-content/uploads/2026/02/DSC_3065.jpg" alt="A day at sea in Milos" loading="lazy"></div><figcaption>see you soon!</figcaption></figure></div>
+      <form class="form" id="bk" novalidate>
+        <div class="routes" role="radiogroup" aria-label="Route">
+          <label><input type="radio" name="route" value="Kleftiko & West Milos" checked><span>Kleftiko &amp; West Milos<small>The day you just scrolled</small></span></label>
+          <label><input type="radio" name="route" value="Polyaigos & Kimolos"><span>Polyaigos &amp; Kimolos<small>Calm turquoise bays</small></span></label>
+        </div>
+        <div class="row">
+          <div class="fld"><label for="bk-date">Date</label><input type="date" id="bk-date"></div>
+          <div class="fld"><label id="g-l">Guests</label><div class="step" role="group" aria-labelledby="g-l"><button type="button" id="g-" aria-label="One guest less">−</button><output id="g">4</output><button type="button" id="g+" aria-label="One guest more">+</button></div></div>
+        </div>
+        <div class="fld"><label for="bk-name">Your name</label><input id="bk-name" autocomplete="name"></div>
+        <div class="total" aria-live="polite"><div><b id="price">–</b><small id="pnote">Pick a date to see your price</small></div><a class="btn btn-ink" id="send" href="https://wa.me/306932977623" target="_blank" rel="noopener">Send on WhatsApp</a></div>
+        <p class="err" id="err" hidden></p>
+        <p class="fine">Whole boat for up to 8 guests, €50 per extra guest (max. 10), VAT included. Lunch, open bar, snorkel gear and SUP included. Free cancellation up to 24 hours before departure.</p>
+      </form>
+      <ul class="facts"><li>From €900 per boat</li><li>Up to 10 guests</li><li>Season 1 April – 15 October</li></ul>
+    </div>
+  </section>
+</main>
+<footer class="foot">Milos Sail Ways · Mersinia, Milos · <span>+30 693 297 7623</span> · <span>info@milossailways.gr</span></footer>
+
+<script>
+(function () {
+  'use strict';
+  var cv = document.getElementById('sea'), ctx = cv.getContext('2d');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W = 0, H = 0, DPR = 1, P = 0, Pshown = 0, T = 0, ripples = [];
+
+  function resize() {
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth; H = window.innerHeight;
+    cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  }
+  window.addEventListener('resize', resize); resize();
+
+  // ── colour helpers
+  function hex(h) { h = h.replace('#', ''); return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)]; }
+  function mix(a, b, t) { return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t]; }
+  function rgb(c, a) { return 'rgba(' + (c[0] | 0) + ',' + (c[1] | 0) + ',' + (c[2] | 0) + ',' + (a == null ? 1 : a) + ')'; }
+  function key(stops, p) {
+    for (var i = 0; i < stops.length - 1; i++) {
+      if (p <= stops[i + 1][0]) { var t = (p - stops[i][0]) / (stops[i + 1][0] - stops[i][0]); return stops[i][1].map(function (c, j) { return mix(hex(c), hex(stops[i + 1][1][j]), Math.max(0, Math.min(1, t))); }); }
+    }
+    return stops[stops.length - 1][1].map(hex);
+  }
+  // sky top, sky horizon, sea near-horizon, sea deep
+  var PAL = [
+    [0.00, ['#7cc4f2', '#e6f6ff', '#4fb3d9', '#0b6fa8']],
+    [0.35, ['#2f8fe0', '#c6ecff', '#2bb5c9', '#06598f']],
+    [0.60, ['#3b82d6', '#d9f0ff', '#28a9c4', '#075a8c']],
+    [0.80, ['#4a6fc4', '#ffe0a3', '#3f93b8', '#0a4c7a']],
+    [0.93, ['#34337a', '#ff9a5e', '#6a6fa4', '#1d2f5c']],
+    [1.00, ['#2a2a66', '#ff7a4d', '#5d5a92', '#1a2650']]
+  ];
+
+  // ── the coast: world positions match the chapters
+  var coast = [
+    { at: 0.00, kind: 'port', w: 0.9 },
+    { at: 0.17, kind: 'klima', w: 0.8 },
+    { at: 0.33, kind: 'cliff', w: 0.9 },
+    { at: 0.50, kind: 'arches', w: 1.1 },
+    { at: 0.66, kind: 'hill', w: 0.9 },
+    { at: 0.84, kind: 'port', w: 0.9 }
+  ];
+  var SPEED = 4.4, HOME_AT = 0.86;
+  var ids = ['adamas', 'klima', 'sykia', 'kleftiko', 'kalogries', 'home'];
+  function syncCoast() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    if (max <= 0) return;
+    ids.forEach(function (id, i) {
+      var el = document.getElementById(id);
+      var at = (el.offsetTop + el.offsetHeight / 2 - window.innerHeight / 2) / max;
+      coast[i].at = Math.max(0, Math.min(1, at));
+    });
+    HOME_AT = coast[5].at;
+  }
+  window.addEventListener('resize', syncCoast); window.addEventListener('load', syncCoast);
+  setTimeout(syncCoast, 300); syncCoast();
+
+  function horizon() { return H * (W < 700 ? 0.56 : 0.6); }
+  function waveY(x, base, amp, k) { return base + Math.sin(x * 0.012 + T * 1.2 + k) * amp + Math.sin(x * 0.031 - T * 0.9 + k * 2) * amp * 0.45; }
+
+  function drawCoast(o, hy, col) {
+    var unit = Math.min(W, 1100);
+    var cx = W * 0.62 + (o.at - P) * unit * SPEED;
+    var w = unit * 0.42 * o.w;
+    if (cx + w < -50 || cx - w > W + 50) return;
+    var hillG = ctx.createLinearGradient(0, hy - H * 0.2, 0, hy);
+    hillG.addColorStop(0, rgb(mix(col[1], [150, 165, 160], 0.5))); hillG.addColorStop(1, rgb(mix(col[1], [95, 115, 125], 0.6)));
+    var hill = hillG;
+    ctx.save();
+    if (o.kind === 'arches') {
+      // Kleftiko: white rock pillars with arches
+      var base = hy + 2, rw = w / 5;
+      for (var i = 0; i < 5; i++) {
+        var x = cx - w / 2 + i * rw, h = (i % 2 ? 0.16 : 0.22) * H * (W < 700 ? 0.8 : 1);
+        var rg2 = ctx.createLinearGradient(x, 0, x + rw, 0); rg2.addColorStop(0, '#ffffff'); rg2.addColorStop(1, '#ddd6c8');
+        ctx.fillStyle = rg2;
+        ctx.beginPath(); ctx.moveTo(x, base); ctx.lineTo(x + rw * 0.08, base - h * 0.85); ctx.quadraticCurveTo(x + rw * 0.5, base - h * 1.1, x + rw * 0.92, base - h * 0.8); ctx.lineTo(x + rw, base); ctx.closePath(); ctx.fill();
+        ctx.fillStyle = rgb(mix(col[2], [10, 40, 70], 0.4));
+        ctx.beginPath(); ctx.moveTo(x + rw * 0.28, base); ctx.quadraticCurveTo(x + rw * 0.5, base - h * 0.55, x + rw * 0.72, base); ctx.closePath(); ctx.fill();
+        ctx.fillStyle = 'rgba(180,170,150,.35)';
+        ctx.fillRect(x + rw * 0.12, base - h * 0.5, rw * 0.06, h * 0.4);
+      }
+    } else if (o.kind === 'cliff') {
+      var cg = ctx.createLinearGradient(cx - w / 2, 0, cx + w / 2, 0); cg.addColorStop(0, rgb(mix(col[1], [110, 85, 80], 0.6))); cg.addColorStop(1, rgb(mix(col[1], [70, 55, 60], 0.7)));
+      ctx.fillStyle = cg;
+      ctx.beginPath(); ctx.moveTo(cx - w / 2, hy + 2); ctx.lineTo(cx - w * 0.35, hy - H * 0.2); ctx.lineTo(cx, hy - H * 0.23); ctx.lineTo(cx + w * 0.3, hy - H * 0.14); ctx.lineTo(cx + w / 2, hy + 2); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = 'rgba(10,30,50,.7)';
+      ctx.beginPath(); ctx.ellipse(cx - w * 0.05, hy, w * 0.07, H * 0.05, 0, Math.PI, 0); ctx.fill();
+    } else {
+      ctx.fillStyle = hill;
+      ctx.beginPath(); ctx.moveTo(cx - w / 2, hy + 2);
+      ctx.bezierCurveTo(cx - w * 0.3, hy - H * 0.16, cx + w * 0.2, hy - H * 0.2, cx + w / 2, hy + 2); ctx.closePath(); ctx.fill();
+      if (o.kind === 'klima') {
+        var colors = ['#e94f37', '#2d9cdb', '#f2c94c', '#27ae60', '#ffffff', '#9b51e0', '#f2994a', '#56ccf2'];
+        var n = 9, bw = w * 0.9 / n;
+        for (var j = 0; j < n; j++) {
+          var hx = cx - w * 0.45 + j * bw;
+          ctx.fillStyle = '#ffffff'; ctx.fillRect(hx, hy - H * 0.035, bw * 0.9, H * 0.035);
+          ctx.fillStyle = colors[j % colors.length]; ctx.fillRect(hx + bw * 0.2, hy - H * 0.022, bw * 0.5, H * 0.022);
+        }
+      }
+      if (o.kind === 'port') {
+        var hs = [[-0.2, .9], [-0.12, 1.1], [-0.04, 1], [0.04, 1.2], [0.12, .95], [0.2, .85]];
+        hs.forEach(function (hh, k) {
+          var px = cx + hh[0] * w, bw = w * 0.07, bh = H * 0.032 * hh[1];
+          var top = hy - Math.max(0, Math.cos(hh[0] * Math.PI * 1.6)) * H * 0.075;
+          ctx.fillStyle = '#ffffff'; ctx.fillRect(px - bw / 2, top - bh, bw, bh + 4);
+          ctx.fillStyle = '#1f5fbf'; ctx.fillRect(px - bw * 0.12, top - bh * 0.55, bw * 0.24, bh * 0.55);
+          if (k === 3) { ctx.beginPath(); ctx.arc(px, top - bh, bw * 0.32, Math.PI, 0); ctx.fill(); }
+        });
+      }
+    }
+    ctx.restore();
+  }
+
+  var BOAT = { x: 0, y: 0, s: 1 };
+  function drawBoat(hy, col) {
+    var x = W * (W < 700 ? 0.3 : 0.32), base = hy + (H - hy) * 0.32;
+    var y = waveY(x, base, 6, 0), slope = (waveY(x + 6, base, 6, 0) - waveY(x - 6, base, 6, 0)) / 12;
+    var s = Math.min(W, 1100) / 1100 * (W < 700 ? 1.35 : 1);
+    BOAT.x = x; BOAT.y = y; BOAT.s = s;
+    var heel = Math.atan(slope) * 0.8 + Math.sin(T * 0.7) * 0.015;
+    ctx.save(); ctx.translate(x, y); ctx.rotate(heel); ctx.scale(s, s);
+    // wake + bow wave
+    ctx.lineCap = 'round';
+    for (var i = 1; i <= 4; i++) {
+      ctx.strokeStyle = 'rgba(255,255,255,' + (0.6 - i * 0.12) + ')'; ctx.lineWidth = 3 - i * 0.5;
+      ctx.beginPath(); ctx.moveTo(-70, 10 + i * 2); ctx.quadraticCurveTo(-120 - i * 30, 12 + i * 6 + Math.sin(T * 2 + i) * 2, -190 - i * 60, 10 + i * 10); ctx.stroke();
+    }
+    ctx.fillStyle = 'rgba(255,255,255,.75)';
+    ctx.beginPath(); ctx.moveTo(78, 12); ctx.quadraticCurveTo(100, 8 + Math.sin(T * 5) * 2, 112, 18); ctx.quadraticCurveTo(96, 20, 78, 18); ctx.fill();
+    // hull
+    var hg = ctx.createLinearGradient(0, -6, 0, 22); hg.addColorStop(0, '#ffffff'); hg.addColorStop(1, '#dfe7ee');
+    ctx.fillStyle = hg;
+    ctx.beginPath(); ctx.moveTo(-80, -4); ctx.lineTo(96, -6); ctx.quadraticCurveTo(84, 18, 52, 21); ctx.lineTo(-62, 21); ctx.quadraticCurveTo(-78, 15, -80, -4); ctx.fill();
+    ctx.fillStyle = '#0d2236'; ctx.beginPath(); ctx.moveTo(-74, 9); ctx.lineTo(88, 7); ctx.lineTo(86, 11); ctx.lineTo(-72, 13); ctx.fill();
+    ctx.fillStyle = '#c99a5b'; ctx.fillRect(-62, -10, 116, 6);
+    // cabin + windows
+    ctx.fillStyle = '#f4f6f8'; ctx.beginPath(); ctx.moveTo(-34, -10); ctx.lineTo(-28, -22); ctx.lineTo(30, -22); ctx.lineTo(40, -10); ctx.fill();
+    ctx.fillStyle = '#29475f'; for (var wdw = 0; wdw < 3; wdw++) { ctx.beginPath(); ctx.ellipse(-14 + wdw * 16, -16, 5, 2.6, 0, 0, Math.PI * 2); ctx.fill(); }
+    // guests: tiny heads on deck
+    ['#f2c94c', '#e94f37', '#0d2236'].forEach(function (c, n) { ctx.fillStyle = '#e9b48f'; ctx.beginPath(); ctx.arc(48 + n * 9, -15 + Math.sin(T * 2 + n) * 0.6, 3.2, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = c; ctx.fillRect(45 + n * 9, -12, 6, 4); });
+    // mast + rigging
+    ctx.strokeStyle = 'rgba(220,228,236,.9)'; ctx.lineWidth = 0.8;
+    ctx.beginPath(); ctx.moveTo(0, -150); ctx.lineTo(94, -6); ctx.moveTo(0, -150); ctx.lineTo(-78, -6); ctx.stroke();
+    ctx.fillStyle = '#d8dee4'; ctx.fillRect(-2, -152, 4, 148);
+    ctx.fillStyle = '#b9c3cc'; ctx.fillRect(-60, -16, 60, 3);
+    // sails with soft shading
+    var ms = ctx.createLinearGradient(-70, 0, 0, 0); ms.addColorStop(0, '#e6ebef'); ms.addColorStop(1, '#ffffff');
+    ctx.fillStyle = ms;
+    ctx.beginPath(); ctx.moveTo(-4, -146); ctx.quadraticCurveTo(-58 + Math.sin(T * 1.3) * 2, -80, -60, -18); ctx.lineTo(-4, -18); ctx.closePath(); ctx.fill();
+    ctx.strokeStyle = 'rgba(160,175,190,.35)'; ctx.lineWidth = 1;
+    for (var b = 1; b < 4; b++) { ctx.beginPath(); ctx.moveTo(-4, -146 + b * 32); ctx.lineTo(-48 + b * 4, -140 + b * 32); ctx.stroke(); }
+    var js = ctx.createLinearGradient(4, 0, 84, 0); js.addColorStop(0, '#ffffff'); js.addColorStop(1, '#efe9de');
+    ctx.fillStyle = js;
+    ctx.beginPath(); ctx.moveTo(4, -140); ctx.quadraticCurveTo(54 + Math.sin(T * 1.1) * 3, -72, 90, -8); ctx.lineTo(4, -12); ctx.closePath(); ctx.fill();
+    // Greek flag at the stern
+    ctx.fillStyle = '#d8dee4'; ctx.fillRect(-80, -30, 1.5, 26);
+    var fw = Math.sin(T * 5) * 1.5;
+    for (var st = 0; st < 5; st++) { ctx.fillStyle = st % 2 ? '#ffffff' : '#0d5eaf'; ctx.beginPath(); ctx.moveTo(-80, -30 + st * 2.4); ctx.lineTo(-96, -30 + st * 2.4 + fw); ctx.lineTo(-96, -27.6 + st * 2.4 + fw); ctx.lineTo(-80, -27.6 + st * 2.4); ctx.fill(); }
+    ctx.restore();
+  }
+
+  // ───────── seagulls ─────────
+  var gulls = [];
+  for (var gi = 0; gi < 7; gi++) gulls.push({ x: Math.random(), y: 0.12 + Math.random() * 0.45, v: 0.012 + Math.random() * 0.02, ph: Math.random() * 6, sz: 0.6 + Math.random() * 0.7 });
+  function gull(x, y, size, phase, dark) {
+    var a = Math.sin(T * 7 + phase), w = 17 * size;
+    ctx.strokeStyle = dark; ctx.lineWidth = Math.max(1.4, 2.2 * size); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    ctx.beginPath();
+    ctx.moveTo(x - w, y - w * 0.15 * a - w * 0.1);
+    ctx.quadraticCurveTo(x - w * 0.45, y - w * (0.45 + 0.35 * a), x, y);
+    ctx.quadraticCurveTo(x + w * 0.45, y - w * (0.45 + 0.35 * a), x + w, y - w * 0.15 * a - w * 0.1);
+    ctx.stroke();
+  }
+  function drawGulls(hy, dt, p) {
+    var dark = p > 0.85 ? 'rgba(30,25,50,.85)' : 'rgba(40,55,70,.75)';
+    gulls.forEach(function (g) {
+      g.x += g.v * dt; var sx = ((g.x - p * 0.8) % 1.3 + 1.3) % 1.3 * W - 0.15 * W;
+      gull(sx, hy * g.y + Math.sin(T * 0.8 + g.ph) * 8, g.sz * (W < 700 ? 0.8 : 1), g.ph, dark);
+    });
+    // one gull circling the mast
+    var s = BOAT.s, cx = BOAT.x + Math.cos(T * 0.7) * 110 * s, cy = BOAT.y - 190 * s + Math.sin(T * 1.4) * 18 * s;
+    gull(cx, cy, 1.1 * s, 1.3, dark);
+  }
+
+  // ───────── dolphins + splashes ─────────
+  var dolphins = [], drops = [], nextPod = 3;
+  function spawnDolphin(x, y, dir, delay, scale) { dolphins.push({ x0: x, y: y, dir: dir, t: -delay, dur: 1.5 + Math.random() * 0.3, sc: scale, splashIn: false, splashOut: false }); }
+  function splash(x, y, n, sc) { for (var i = 0; i < n; i++) drops.push({ x: x, y: y, vx: (Math.random() - 0.5) * 3.2 * sc, vy: -(1.5 + Math.random() * 3.5) * sc, life: 1 }); }
+  function spawnPod() {
+    var hy = horizon(), dir = Math.random() < 0.5 ? 1 : -1;
+    var x = W * (0.45 + Math.random() * 0.4), y = hy + (H - hy) * (0.3 + Math.random() * 0.18);
+    var sc = Math.min(W, 1100) / 1100 * (W < 700 ? 1.2 : 1) * (0.8 + (y - hy) / (H - hy) * 0.5);
+    var n = 2 + (Math.random() * 2 | 0);
+    for (var i = 0; i < n; i++) spawnDolphin(x - dir * i * 40 * sc, y + i * 6, dir, i * 0.28, sc * (1 - i * 0.08));
+  }
+  function dolphinShape(k) {
+    ctx.beginPath();
+    ctx.moveTo(50 * k, 2 * k);
+    ctx.quadraticCurveTo(44 * k, -2 * k, 36 * k, -4 * k);           // beak
+    ctx.quadraticCurveTo(32 * k, -15 * k, 18 * k, -16 * k);         // melon
+    ctx.quadraticCurveTo(2 * k, -18 * k, -10 * k, -14 * k);         // back
+    ctx.quadraticCurveTo(-8 * k, -27 * k, -22 * k, -31 * k);        // dorsal fin
+    ctx.quadraticCurveTo(-19 * k, -21 * k, -23 * k, -12 * k);
+    ctx.quadraticCurveTo(-36 * k, -8 * k, -46 * k, -3 * k);         // tail stock
+    ctx.quadraticCurveTo(-54 * k, -14 * k, -66 * k, -15 * k);       // upper fluke
+    ctx.quadraticCurveTo(-57 * k, -5 * k, -58 * k, 0);
+    ctx.quadraticCurveTo(-57 * k, 5 * k, -66 * k, 15 * k);          // lower fluke
+    ctx.quadraticCurveTo(-54 * k, 13 * k, -46 * k, 3 * k);
+    ctx.quadraticCurveTo(-20 * k, 13 * k, 10 * k, 11 * k);          // belly
+    ctx.quadraticCurveTo(36 * k, 9 * k, 50 * k, 2 * k);
+    ctx.closePath();
+  }
+  function drawDolphins(dt) {
+    dolphins = dolphins.filter(function (d) { return d.t < d.dur + 0.1; });
+    dolphins.forEach(function (d) {
+      d.t += dt; if (d.t < 0) return;
+      var u = Math.min(1, d.t / d.dur), dist = 220 * d.sc, hgt = 90 * d.sc;
+      var x = d.x0 + d.dir * dist * u, y = d.y - Math.sin(u * Math.PI) * hgt;
+      if (!d.splashIn && u > 0.02) { d.splashIn = true; splash(d.x0, d.y, 14, d.sc); }
+      if (!d.splashOut && u > 0.97) { d.splashOut = true; splash(d.x0 + d.dir * dist, d.y, 18, d.sc); }
+      var ang = Math.atan2(-Math.cos(u * Math.PI) * hgt * Math.PI, dist) ;
+      ctx.save(); ctx.translate(x, y); ctx.scale(d.dir, 1); ctx.rotate(ang);
+      var k = d.sc * 0.85;
+      var dg = ctx.createLinearGradient(0, -18 * k, 0, 12 * k); dg.addColorStop(0, '#3e5a72'); dg.addColorStop(0.55, '#6f8fa8'); dg.addColorStop(0.75, '#c9d8e3'); dg.addColorStop(1, '#eef3f7');
+      ctx.fillStyle = dg; dolphinShape(k); ctx.fill();
+      ctx.fillStyle = '#56738c'; ctx.beginPath(); ctx.moveTo(14 * k, 8 * k); ctx.quadraticCurveTo(4 * k, 20 * k, -4 * k, 20 * k); ctx.quadraticCurveTo(0, 12 * k, 2 * k, 9 * k); ctx.fill();
+      ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.beginPath(); ctx.ellipse(10 * k, -12 * k, 16 * k, 2.2 * k, -0.08, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#0d2236'; ctx.beginPath(); ctx.arc(31 * k, -5 * k, 1.7 * k, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = 'rgba(13,34,54,.35)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(36 * k, -1 * k); ctx.quadraticCurveTo(42 * k, 1 * k, 48 * k, 1.5 * k); ctx.stroke();
+      ctx.restore();
+    });
+  }
+  function drawDrops(dt) {
+    drops = drops.filter(function (d) { return d.life > 0; });
+    ctx.fillStyle = 'rgba(255,255,255,.9)';
+    drops.forEach(function (d) {
+      d.x += d.vx * dt * 60; d.y += d.vy * dt * 60; d.vy += 0.18 * dt * 60; d.life -= 1.4 * dt;
+      ctx.globalAlpha = Math.max(0, d.life); ctx.beginPath(); ctx.arc(d.x, d.y, 1.8, 0, Math.PI * 2); ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+  }
+
+  // ───────── fish school (seen through the clear water, flees from the pointer) ─────────
+  var fish = [], PTR = { x: -999, y: -999 };
+  for (var fi = 0; fi < 14; fi++) fish.push({ x: Math.random(), y: Math.random(), vx: 0, vy: 0, sz: 0.7 + Math.random() * 0.6, ph: Math.random() * 6 });
+  function drawFish(hy, dt) {
+    var top = hy + (H - hy) * 0.55, bot = H - 20;
+    var tx = W * (0.5 + 0.35 * Math.sin(T * 0.13)), ty = top + (bot - top) * (0.5 + 0.35 * Math.sin(T * 0.21));
+    fish.forEach(function (f, i) {
+      if (f.x < 1.5) { f.x = Math.random() * W; f.y = top + Math.random() * (bot - top); }
+      var ax = (tx + Math.cos(i * 1.7 + T * 0.6) * 130 - f.x) * 0.0009, ay = (ty + Math.sin(i * 2.3 + T * 0.5) * 45 - f.y) * 0.0009;
+      var dx = f.x - PTR.x, dy = f.y - PTR.y, d2 = dx * dx + dy * dy;
+      if (d2 < 140 * 140) { var d = Math.sqrt(d2) || 1; ax += dx / d * 0.35; ay += dy / d * 0.35; }
+      f.vx = (f.vx + ax * dt * 60) * 0.96; f.vy = (f.vy + ay * dt * 60) * 0.96;
+      var sp = Math.hypot(f.vx, f.vy), maxs = d2 < 140 * 140 ? 7 : 2.4;
+      if (sp > maxs) { f.vx *= maxs / sp; f.vy *= maxs / sp; }
+      f.x += f.vx * dt * 60; f.y = Math.max(top, Math.min(bot, f.y + f.vy * dt * 60));
+      var a = Math.atan2(f.vy, f.vx), s = f.sz * (W < 700 ? 1.2 : 1.5), wig = Math.sin(T * 12 + f.ph) * 0.35;
+      ctx.save(); ctx.translate(f.x, f.y); ctx.rotate(a); ctx.globalAlpha = 0.5;
+      var fg = ctx.createLinearGradient(0, -4 * s, 0, 4 * s); fg.addColorStop(0, '#0a3a58'); fg.addColorStop(1, '#5fb0d4'); ctx.fillStyle = fg;
+      ctx.beginPath(); ctx.ellipse(0, 0, 9 * s, 3.4 * s, 0, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(-7 * s, 0); ctx.lineTo(-14 * s, -4 * s + wig * 4 * s); ctx.lineTo(-14 * s, 4 * s + wig * 4 * s); ctx.fill();
+      ctx.globalAlpha = 0.5 * Math.max(0, Math.sin(T * 3 + f.ph)); ctx.fillStyle = '#c9f1ff';
+      ctx.beginPath(); ctx.ellipse(1 * s, -1.2 * s, 5 * s, 1 * s, 0, 0, Math.PI * 2); ctx.fill();
+      ctx.restore();
+    });
+  }
+
+  // ───────── sparkles + stars ─────────
+  var sparks = [], stars = [];
+  for (var si = 0; si < 60; si++) sparks.push({ x: Math.random(), y: Math.random(), ph: Math.random() * 6 });
+  for (var ti = 0; ti < 70; ti++) stars.push({ x: Math.random(), y: Math.random() * 0.75, r: Math.random() * 1.2 + 0.4, ph: Math.random() * 6 });
+  function sparkle(x, y, r, a) {
+    ctx.globalAlpha = a; ctx.fillStyle = '#ffffff';
+    ctx.beginPath(); ctx.moveTo(x, y - r); ctx.lineTo(x + r * 0.25, y); ctx.lineTo(x, y + r); ctx.lineTo(x - r * 0.25, y); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(x - r, y); ctx.lineTo(x, y + r * 0.25); ctx.lineTo(x + r, y); ctx.lineTo(x, y - r * 0.25); ctx.closePath(); ctx.fill();
+    ctx.globalAlpha = 1;
+  }
+
+  var lastNow = 0;
+  function frame(now) {
+    var dt = Math.min(0.05, (now - (lastNow || now)) / 1000); lastNow = now;
+    T = reduce ? 0 : now / 1000;
+    var max = document.documentElement.scrollHeight - H;
+    P = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    Pshown += (P - Pshown) * (reduce ? 1 : 0.12);
+    var p = Pshown, col = key(PAL, p), hy = horizon();
+    var saveP = P; P = p;
+
+    // sky
+    var g = ctx.createLinearGradient(0, 0, 0, hy);
+    g.addColorStop(0, rgb(col[0])); g.addColorStop(1, rgb(col[1]));
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, hy + 1);
+    // stars come out at sunset
+    if (p > 0.88) {
+      var sa = Math.min(1, (p - 0.88) / 0.1);
+      stars.forEach(function (st) { ctx.globalAlpha = sa * (0.5 + 0.5 * Math.sin(T * 2 + st.ph)); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(st.x * W, st.y * hy * 0.7, st.r, 0, Math.PI * 2); ctx.fill(); });
+      ctx.globalAlpha = 1;
+    }
+    // sun on an arc, setting at the end
+    var sx = W * (0.12 + p * 0.78), sy = hy - Math.sin(Math.min(1, p * 1.05) * Math.PI) * hy * 0.62 + (p > 0.85 ? (p - 0.85) * hy * 0.9 : 0) - 10;
+    var sunCol = mix(hex('#fff3b0'), hex('#ff6a3d'), Math.max(0, (p - 0.65) / 0.35));
+    var glow = ctx.createRadialGradient(sx, sy, 0, sx, sy, H * 0.35);
+    glow.addColorStop(0, rgb(sunCol, .55)); glow.addColorStop(1, rgb(sunCol, 0));
+    ctx.fillStyle = glow; ctx.fillRect(0, 0, W, hy);
+    ctx.save(); ctx.translate(sx, sy); ctx.rotate(T * 0.03);
+    for (var ray = 0; ray < 12; ray++) { ctx.rotate(Math.PI / 6); ctx.fillStyle = rgb(sunCol, 0.07); ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(-18, H * 0.3); ctx.lineTo(18, H * 0.3); ctx.fill(); }
+    ctx.restore();
+    ctx.fillStyle = rgb(sunCol); ctx.beginPath(); ctx.arc(sx, sy, Math.max(26, H * 0.05), 0, Math.PI * 2); ctx.fill();
+    // a few clouds drifting
+    ctx.fillStyle = rgb(mix(col[1], [255, 255, 255], .6), .7);
+    for (var c = 0; c < 4; c++) {
+      var cx = ((c * 0.31 + T * 0.004 + p * 0.3) % 1.2 - 0.1) * W, cy = hy * (0.18 + c * 0.11);
+      ctx.beginPath(); ctx.ellipse(cx, cy, 60 + c * 14, 12 + c * 2, 0, 0, Math.PI * 2); ctx.ellipse(cx + 34, cy - 8, 36, 14, 0, 0, Math.PI * 2); ctx.fill();
+    }
+
+    // coast behind the horizon line
+    coast.forEach(function (o) { drawCoast(o, hy, col); });
+    var hz = ctx.createLinearGradient(0, hy - 40, 0, hy + 6); hz.addColorStop(0, rgb(col[1], 0)); hz.addColorStop(1, rgb(col[1], .45));
+    ctx.fillStyle = hz; ctx.fillRect(0, hy - 40, W, 46);
+    if (!reduce) drawGulls(hy, dt, p);
+
+    // sea
+    var sg = ctx.createLinearGradient(0, hy, 0, H);
+    sg.addColorStop(0, rgb(col[2])); sg.addColorStop(1, rgb(col[3]));
+    ctx.fillStyle = sg; ctx.fillRect(0, hy, W, H - hy);
+    // sun reflection
+    var rg = ctx.createLinearGradient(0, hy, 0, H);
+    rg.addColorStop(0, rgb(sunCol, .5)); rg.addColorStop(1, rgb(sunCol, 0));
+    ctx.fillStyle = rg;
+    for (var r = 0; r < 26; r++) {
+      var ry = hy + r * r * (H - hy) / 700, rw = 18 + r * 4 + Math.sin(T * 2 + r) * 8;
+      ctx.beginPath(); ctx.ellipse(sx + Math.sin(T * 1.5 + r * 1.7) * 10, ry, rw / 2, 1.2 + r * 0.14, 0, 0, Math.PI * 2); ctx.fill();
+    }
+    sparks.forEach(function (sp, i) {
+      var x = sp.x * W, y = hy + 6 + sp.y * (H - hy) * 0.85, near = Math.max(0, 1 - Math.abs(x - sx) / (W * 0.35));
+      var a = Math.pow(Math.max(0, Math.sin(T * 2.6 + sp.ph)), 10) * (0.35 + near * 0.65);
+      if (a > 0.02) sparkle(x, y, 2 + near * 4, a);
+    });
+    // dolphins every few seconds
+    if (!reduce) { nextPod -= dt; if (nextPod <= 0) { spawnPod(); nextPod = 6 + Math.random() * 6; } }
+    // wave bands
+    for (var k = 0; k < 6; k++) {
+      var base = hy + (H - hy) * (0.12 + k * 0.17), amp = 2 + k * 2.2;
+      ctx.beginPath(); ctx.moveTo(0, H);
+      for (var x = 0; x <= W + 20; x += 20) ctx.lineTo(x, waveY(x + p * 900 * (k + 1), base, amp, k));
+      ctx.lineTo(W, H); ctx.closePath();
+      ctx.fillStyle = rgb(mix(col[2], col[3], 0.25 + k * 0.14), 0.55);
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,' + (0.08 + k * 0.03) + ')'; ctx.lineWidth = 1.5; ctx.stroke();
+      if (k === 2) drawBoat(hy, col);
+      if (k === 3) { drawDolphins(dt); drawDrops(dt); }
+    }
+    if (!reduce) drawFish(hy, dt);
+
+    // ripples from the pointer
+    ripples = ripples.filter(function (rp) { return rp.life > 0; });
+    ripples.forEach(function (rp) {
+      rp.r += 1.6; rp.life -= 0.018;
+      ctx.strokeStyle = 'rgba(255,255,255,' + rp.life * 0.7 + ')'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.ellipse(rp.x, rp.y, rp.r, rp.r * 0.32, 0, 0, Math.PI * 2); ctx.stroke();
+    });
+
+    P = saveP;
+    updateHud(p);
+    requestAnimationFrame(frame);
+  }
+
+  var lastRipple = 0;
+  function addRipple(x, y) { if (y > horizon() && !reduce) ripples.push({ x: x, y: y, r: 4, life: 1 }); }
+  window.addEventListener('pointermove', function (e) { PTR.x = e.clientX; PTR.y = e.clientY; var n = performance.now(); if (n - lastRipple > 90) { lastRipple = n; addRipple(e.clientX, e.clientY); } }, { passive: true });
+  window.addEventListener('pointerleave', function () { PTR.x = PTR.y = -999; });
+  window.addEventListener('pointerdown', function (e) {
+    PTR.x = e.clientX; PTR.y = e.clientY;
+    addRipple(e.clientX, e.clientY); addRipple(e.clientX + 10, e.clientY + 4);
+    if (reduce || e.target.closest('a, button, input, label, form, .card, .trips')) return;
+    var hy = horizon(); if (e.clientY < hy + 20) return;
+    var sc = Math.min(W, 1100) / 1100 * (W < 700 ? 1.2 : 1) * (0.8 + (e.clientY - hy) / (H - hy) * 0.5);
+    spawnDolphin(e.clientX, e.clientY, e.clientX < W / 2 ? 1 : -1, 0, sc);
+  });
+
+  // ── clock + stop tracker
+  var timeEl = document.getElementById('time'), whereEl = document.getElementById('where');
+  var hh = document.getElementById('hand-h'), hm = document.getElementById('hand-m');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('[data-stop]'));
+  var trackLinks = Array.prototype.slice.call(document.querySelectorAll('#track a'));
+  var lastMin = -1;
+  function updateHud(p) {
+    var T_AT = [600, 660, 720, 780, 930, 1050], mins = 600;
+    for (var q = 0; q < coast.length; q++) {
+      if (p >= coast[q].at) mins = T_AT[q];
+      if (q < coast.length - 1 && p >= coast[q].at && p < coast[q + 1].at) mins = T_AT[q] + (T_AT[q + 1] - T_AT[q]) * (p - coast[q].at) / (coast[q + 1].at - coast[q].at);
+    }
+    mins = Math.round(mins / 5) * 5;
+    if (mins !== lastMin) {
+      lastMin = mins;
+      var h = Math.floor(mins / 60), m = mins % 60;
+      timeEl.textContent = h + ':' + String(m).padStart(2, '0');
+      var ma = m / 60 * 360, ha = ((h % 12) + m / 60) / 12 * 360;
+      hm.setAttribute('transform', 'rotate(' + ma + ' 12 12)');
+      hh.setAttribute('transform', 'rotate(' + ha + ' 12 12)');
+    }
+    var mid = window.innerHeight * 0.5, cur = 0;
+    chapters.forEach(function (c, i) { if (c.getBoundingClientRect().top < mid) cur = i; });
+    whereEl.textContent = chapters[cur] ? chapters[cur].dataset.stop : 'Adamas';
+    trackLinks.forEach(function (a, i) { a.classList.toggle('on', i === cur); });
+  }
+  requestAnimationFrame(frame);
+
+  // photos that cannot load keep their coloured placeholder with the camera icon
+  document.querySelectorAll('.pola img, .trips img').forEach(function (im) {
+    var off = function () { im.style.visibility = 'hidden'; };
+    if (im.complete && !im.naturalWidth) off(); im.addEventListener('error', off);
+  });
+
+  // gentle card entrance
+  if (!reduce && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('js-motion');
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target.classList.toggle('pre', !e.isIntersecting); }); }, { threshold: 0.25 });
+    document.querySelectorAll('.card').forEach(function (c) { io.observe(c); });
+  }
+
+  // ── booking
+  var g = 4, date = document.getElementById('bk-date'), send = document.getElementById('send'), err = document.getElementById('err');
+  var PR = { 4: 900, 5: 1000, 6: 1200, 7: 1300, 8: 1300, 9: 1300, 10: 1000 };
+  var eur = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+  var now = new Date(), y = now.getFullYear(); if (now > new Date(y, 9, 15)) y++;
+  var pad = function (n) { return String(n).padStart(2, '0'); };
+  var mn = new Date(Math.max(now, new Date(y, 3, 1)));
+  date.min = mn.getFullYear() + '-' + pad(mn.getMonth() + 1) + '-' + pad(mn.getDate()); date.max = (y + 1) + '-10-15';
+  function price() {
+    if (!date.value) return null;
+    var d = date.value.split('-').map(Number);
+    if (!PR[d[1]] || (d[1] === 10 && d[2] > 15)) return -1;
+    return PR[d[1]] + Math.max(0, g - 8) * 50;
+  }
+  function update() {
+    document.getElementById('g').textContent = g;
+    document.getElementById('g-').disabled = g <= 1; document.getElementById('g+').disabled = g >= 10;
+    var p = price(), pe = document.getElementById('price'), pn = document.getElementById('pnote');
+    if (p === null) { pe.textContent = '–'; pn.textContent = 'Pick a date to see your price'; }
+    else if (p === -1) { pe.textContent = '–'; pn.textContent = 'We sail from 1 April to 15 October.'; }
+    else { pe.textContent = eur.format(p); pn.textContent = 'whole boat, ' + g + ' guests, VAT included'; }
+    var route = document.querySelector('input[name="route"]:checked').value, nm = document.getElementById('bk-name').value.trim();
+    var lines = ['Hello Milos Sail Ways! I would like to book a private cruise.', '', 'Route: ' + route, 'Date: ' + (date.value || '?'), 'Guests: ' + g];
+    if (nm) lines.push('Name: ' + nm);
+    if (p > 0) lines.push('Estimated price: ' + eur.format(p));
+    send.href = 'https://wa.me/306932977623?text=' + encodeURIComponent(lines.join('\n'));
+  }
+  document.getElementById('g-').onclick = function () { if (g > 1) { g--; update(); } };
+  document.getElementById('g+').onclick = function () { if (g < 10) { g++; update(); } };
+  document.getElementById('bk').addEventListener('input', update);
+  document.getElementById('bk').addEventListener('change', update);
+  send.addEventListener('click', function (e) {
+    var p = price();
+    if (p === null || p === -1) { e.preventDefault(); err.textContent = p === null ? 'Pick a date first.' : 'Pick a date between 1 April and 15 October.'; err.hidden = false; date.focus(); }
+    else err.hidden = true;
+  });
+  update();
+})();
+</script>

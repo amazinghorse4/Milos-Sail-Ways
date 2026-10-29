@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Milos Boat Tours | Private Sailing to Kleftiko &amp; Polyaigos</title>
+<meta name="description" content="Private sailing cruises in Milos to Kleftiko and Polyaigos for up to 10 guests. Lunch, open bar, snorkel and SUP included. From €900 per boat.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+/* Variant B – "the chart": Cycladic blue & white, bougainvillea as the one loud colour,
+   a Didot display face, and a schematic sea chart of Milos as the centrepiece. */
+:root {
+  --white: #ffffff;
+  --paper: #f2f5fb;      /* whitewash with a blue cast */
+  --aegean: #1a47a0;     /* Cycladic dome blue */
+  --navy: #0c1f45;
+  --bougain: #c42d6a;    /* bougainvillea */
+  --bougain-2: #a8215a;
+  --mist: #c9d6ee;
+  --muted: #4a5878;
+  --rule: #d9e1f0;
+  --sea: #dbe6f7;        /* water on the chart */
+  --display: "GFS Didot", Didot, "Bodoni 72", "Times New Roman", serif;
+  --sans: "Manrope", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body { margin: 0; background: var(--paper); color: var(--navy); font-family: var(--sans); font-size: 1.0625rem; line-height: 1.6; -webkit-font-smoothing: antialiased; padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)); }
+img { max-width: 100%; display: block; }
+a { color: var(--aegean); }
+:focus-visible { outline: 3px solid var(--bougain); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { margin: 0 0 .5em; text-wrap: balance; }
+h1, h2 { font-family: var(--display); font-weight: 400; letter-spacing: -.01em; line-height: 1.02; }
+h2 { font-size: clamp(2.1rem, 4.6vw, 3.4rem); }
+h3 { font-size: 1.15rem; font-weight: 700; line-height: 1.3; }
+p { margin: 0 0 1em; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.lead { font-size: clamp(1.08rem, 1.7vw, 1.25rem); color: var(--muted); max-width: 54ch; }
+
+/* buttons: squared-off, unlike variant A's pills */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .55em; min-height: 50px; padding: .75em 1.4em; border: 2px solid transparent; border-radius: 4px; font: inherit; font-weight: 700; font-size: 1rem; text-decoration: none; cursor: pointer; transition: background-color .15s, color .15s, border-color .15s; }
+.btn-pink { background: var(--bougain); color: var(--white); }
+.btn-pink:hover { background: var(--bougain-2); color: var(--white); }
+.btn-blue { background: var(--aegean); color: var(--white); }
+.btn-blue:hover { background: var(--navy); color: var(--white); }
+.btn-outline { border-color: currentColor; color: var(--navy); background: transparent; }
+.btn-outline:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.ico { width: 1.2em; height: 1.2em; flex: none; }
+
+/* header */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--white); }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--white); border-bottom: 1px solid var(--rule); }
+.top-in { display: flex; align-items: center; gap: 20px; height: 68px; }
+.mark { font-family: var(--display); font-size: 1.55rem; color: var(--aegean); text-decoration: none; white-space: nowrap; display: flex; align-items: center; gap: 10px; }
+.mark svg { width: 30px; height: 30px; }
+.nav { display: none; gap: 28px; margin-left: auto; }
+.nav a { color: var(--navy); text-decoration: none; font-weight: 600; font-size: .97rem; padding: 6px 0; border-bottom: 2px solid transparent; }
+.nav a:hover { border-color: var(--bougain); }
+.langs { display: none; gap: 4px; font-size: .82rem; font-weight: 700; }
+.langs a { color: var(--muted); text-decoration: none; padding: 5px 7px; }
+.langs a[aria-current] { color: var(--aegean); box-shadow: inset 0 -2px 0 var(--aegean); }
+.top .btn { margin-left: auto; min-height: 42px; padding: .5em 1em; font-size: .95rem; }
+@media (min-width: 700px) { .langs { display: flex; margin-left: auto; } .top .btn { margin-left: 0; } }
+@media (min-width: 1040px) { .nav { display: flex; } .langs { margin-left: 8px; } }
+
+/* hero */
+.hero { background: var(--aegean); color: var(--white); position: relative; overflow: hidden; }
+.hero-in { display: grid; gap: 40px; padding-block: clamp(48px, 8vw, 96px) 0; }
+.hero h1 { font-size: clamp(3.2rem, 9.5vw, 7.6rem); line-height: .95; margin-bottom: .3em; }
+.hero h1 span { display: block; color: var(--mist); }
+.hero .lead { color: #dfe7f7; }
+.hero .btn-outline { color: var(--white); }
+.hero .btn-outline:hover { background: var(--white); color: var(--aegean); border-color: var(--white); }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 40px 0 0; border-top: 1px solid rgba(255,255,255,.28); }
+.stats div { padding: 18px 16px 22px 0; }
+.stats div + div { padding-left: 16px; border-left: 1px solid rgba(255,255,255,.28); }
+.stats dt { font-size: .85rem; color: #c3d1ee; }
+.stats dd { margin: 2px 0 0; font-family: var(--display); font-size: clamp(1.5rem, 3.6vw, 2.3rem); line-height: 1.1; }
+.wave { display: block; width: 100%; height: 40px; margin-top: 24px; }
+@media (min-width: 940px) {
+  .hero-in { grid-template-columns: 1.15fr .85fr; align-items: end; }
+  .hero-photo { align-self: stretch; }
+}
+.hero-photo { position: relative; min-height: 280px; border-radius: 200px 200px 0 0; overflow: hidden; background: linear-gradient(180deg, #5b8fd9 0%, #2a64c4 45%, #163a87 100%); }
+.hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-photo figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 18px; font-size: .85rem; color: var(--white); background: linear-gradient(to top, rgba(12,31,69,.7), transparent); }
+
+/* section scaffolding */
+.sec { padding-block: clamp(64px, 9vw, 112px); }
+.sec-white { background: var(--white); }
+.sec-head { max-width: 700px; margin-bottom: clamp(28px, 4vw, 48px); }
+
+/* the chart */
+.planner-map { display: grid; gap: 32px; }
+@media (min-width: 980px) { .planner-map { grid-template-columns: 1.25fr 1fr; gap: 56px; align-items: start; } }
+.tabs { display: flex; gap: 0; border: 2px solid var(--aegean); border-radius: 4px; overflow: hidden; margin-bottom: 26px; }
+.tabs button { flex: 1; border: 0; background: var(--white); color: var(--aegean); font: inherit; font-weight: 700; padding: 13px 10px; cursor: pointer; }
+.tabs button[aria-selected="true"] { background: var(--aegean); color: var(--white); }
+.chart { background: var(--sea); border-radius: 6px; padding: 10px; position: relative; }
+.chart svg { width: 100%; height: auto; display: block; }
+.chart .land { fill: var(--white); stroke: #9fb3d9; stroke-width: 1.2; }
+.chart .grid line { stroke: #c4d3ee; stroke-width: 1; }
+.chart .lbl { font-family: var(--sans); font-size: 12.5px; font-weight: 600; fill: var(--muted); }
+.chart .lbl-big { font-family: var(--display); font-size: 22px; fill: var(--aegean); }
+.chart .lbl-isl { font-family: var(--display); font-size: 15px; fill: var(--aegean); }
+.chart .course { fill: none; stroke-width: 3; stroke-dasharray: 7 6; stroke-linecap: round; transition: opacity .3s; }
+.chart .course.k { stroke: var(--bougain); }
+.chart .course.p { stroke: var(--aegean); }
+.chart .stop { transition: opacity .3s; }
+.chart .stop circle { stroke: var(--white); stroke-width: 2.5; }
+.chart .stop.k circle { fill: var(--bougain); }
+.chart .stop.p circle { fill: var(--aegean); }
+.chart .port circle { fill: var(--navy); stroke: var(--white); stroke-width: 3; }
+.chart[data-route="k"] .p:not(.port), .chart[data-route="p"] .k:not(.port) { opacity: .12; }
+@media (max-width: 600px) { .chart .lbl { font-size: 20px; } .chart .lbl-isl { font-size: 22px; } .chart .lbl-big { font-size: 30px; } }
+.chart-note { position: absolute; right: 16px; bottom: 12px; font-size: .75rem; color: var(--muted); }
+.compass { font-family: var(--display); }
+.route-panel h3 { font-family: var(--display); font-weight: 400; font-size: 2.2rem; margin-bottom: .2em; }
+.route-panel .lead { font-size: 1.05rem; }
+.stops { list-style: none; margin: 22px 0 24px; padding: 0; counter-reset: s; }
+.stops li { display: grid; grid-template-columns: 62px 1fr; gap: 0 14px; padding: 12px 0; border-top: 1px solid var(--rule); }
+.stops li:last-child { border-bottom: 1px solid var(--rule); }
+.stops time { font-weight: 800; font-size: .9rem; color: var(--aegean); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.stops strong { display: block; }
+.stops span { color: var(--muted); font-size: .95rem; }
+.stops .lunch strong::after { content: attr(data-tag); margin-left: 8px; font-size: .72rem; font-weight: 800; color: var(--white); background: var(--bougain); padding: 2px 8px; border-radius: 3px; vertical-align: 2px; }
+.alt { font-size: .93rem; color: var(--muted); background: var(--paper); border-left: 3px solid var(--aegean); padding: 12px 16px; margin-bottom: 22px; }
+
+/* photo strip */
+.strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(230px, 30%); gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; scrollbar-width: thin; }
+.strip figure { margin: 0; scroll-snap-align: start; }
+.strip .ph { aspect-ratio: 3 / 4; border-radius: 120px 120px 4px 4px; overflow: hidden; background: linear-gradient(180deg, #8fb2ea, #1a47a0); }
+.strip figure:nth-child(even) .ph { border-radius: 4px; background: linear-gradient(200deg, #e7c3d4, #c42d6a 120%); }
+.strip img { width: 100%; height: 100%; object-fit: cover; }
+.strip figcaption { font-size: .9rem; font-weight: 600; margin-top: 10px; }
+@media (max-width: 600px) { .strip { grid-auto-columns: 72%; } }
+
+/* included */
+.incl { display: grid; gap: 40px; }
+@media (min-width: 860px) { .incl { grid-template-columns: repeat(3, 1fr); gap: 48px; } }
+.incl h3 { font-family: var(--display); font-weight: 400; font-size: 1.7rem; border-bottom: 2px solid var(--navy); padding-bottom: 10px; margin-bottom: 14px; }
+.incl ul { list-style: none; margin: 0; padding: 0; }
+.incl li { padding: 9px 0; border-bottom: 1px solid var(--rule); }
+
+/* boat */
+.boat { display: grid; gap: 40px; align-items: center; }
+@media (min-width: 900px) { .boat { grid-template-columns: 1fr 1fr; gap: 72px; } }
+.boat-ph { aspect-ratio: 4 / 5; border-radius: 4px 220px 4px 4px; overflow: hidden; background: linear-gradient(160deg, #8fb2ea, #0c1f45); }
+.boat-ph img { width: 100%; height: 100%; object-fit: cover; }
+.specs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; margin: 28px 0 0; }
+.specs div { padding: 14px 0; border-top: 1px solid var(--rule); }
+.specs dt { font-size: .85rem; color: var(--muted); }
+.specs dd { margin: 0; font-family: var(--display); font-size: 1.9rem; line-height: 1.15; }
+
+/* prices */
+.prices { background: var(--navy); color: var(--white); }
+.prices .lead { color: #c3d1ee; }
+.months { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); border-top: 1px solid rgba(255,255,255,.25); }
+.months button { background: transparent; border: 0; border-right: 1px solid rgba(255,255,255,.15); color: #c3d1ee; font: inherit; font-weight: 700; font-size: .9rem; padding: 16px 4px; cursor: pointer; text-align: center; }
+.months button:last-child { border-right: 0; }
+.months button[aria-pressed="true"] { background: var(--white); color: var(--navy); }
+.price-out { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 18px; padding: 28px 0 0; }
+.price-out .big { font-family: var(--display); font-size: clamp(3.4rem, 9vw, 6rem); line-height: 1; font-variant-numeric: lining-nums; }
+.price-out p { margin: 0; color: #c3d1ee; max-width: 36ch; }
+
+/* booking planner */
+.plan { background: var(--white); border: 1px solid var(--rule); border-radius: 6px; padding: clamp(20px, 4vw, 40px); display: grid; gap: 22px; }
+.plan-grid { display: grid; gap: 18px; }
+@media (min-width: 720px) { .plan-grid { grid-template-columns: 1fr 1fr 1fr; } }
+.plan label, .plan .lbl-txt { display: block; font-weight: 700; font-size: .95rem; margin-bottom: 7px; }
+.plan input, .plan select { width: 100%; min-height: 52px; font: inherit; color: var(--navy); background: var(--paper); border: 2px solid var(--rule); border-radius: 4px; padding: 10px 14px; }
+.plan input:focus, .plan select:focus { outline: none; border-color: var(--aegean); }
+.stepper { display: grid; grid-template-columns: 52px 1fr 52px; border: 2px solid var(--rule); border-radius: 4px; overflow: hidden; }
+.stepper button { border: 0; background: var(--paper); font: inherit; font-size: 1.4rem; font-weight: 700; color: var(--aegean); cursor: pointer; min-height: 48px; }
+.stepper button:disabled { color: var(--rule); cursor: default; }
+.stepper output { display: grid; place-items: center; font-weight: 800; font-size: 1.15rem; font-variant-numeric: tabular-nums; }
+.plan-sum { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-top: 22px; border-top: 1px solid var(--rule); }
+.plan-sum .sum-price { font-family: var(--display); font-size: 2.4rem; line-height: 1; }
+.plan-sum small { display: block; color: var(--muted); font-size: .88rem; margin-top: 4px; }
+.plan-msg { margin: 0; font-size: .92rem; color: var(--muted); }
+.plan-err { color: var(--bougain-2); font-weight: 700; margin: 0; }
+.contact-line { font-size: .95rem; color: var(--muted); margin: 0; }
+.contact-line b { color: var(--navy); user-select: all; }
+
+/* FAQ */
+.faq { display: grid; gap: 0; }
+@media (min-width: 900px) { .faq-wrap { display: grid; grid-template-columns: 1fr 1.6fr; gap: 64px; } }
+.faq details { border-top: 1px solid var(--rule); }
+.faq details:last-child { border-bottom: 1px solid var(--rule); }
+.faq summary { cursor: pointer; list-style: none; padding: 18px 40px 18px 0; font-weight: 700; position: relative; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: ""; position: absolute; right: 8px; top: 50%; width: 10px; height: 10px; border-right: 2px solid var(--aegean); border-bottom: 2px solid var(--aegean); transform: translateY(-70%) rotate(45deg); transition: transform .2s; }
+.faq details[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
+.faq details p { color: var(--muted); padding-right: 40px; }
+
+/* footer */
+.foot { background: var(--aegean); color: #dfe7f7; padding-block: 56px 28px; }
+.foot a { color: var(--white); }
+.foot-grid { display: grid; gap: 28px; }
+@media (min-width: 760px) { .foot-grid { grid-template-columns: 1.5fr 1fr 1fr; } }
+.foot .mark { color: var(--white); }
+.foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.foot h3 { font-size: .95rem; color: var(--white); }
+.foot small { display: block; margin-top: 40px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.2); }
+
+/* mobile bar */
+.mbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; display: grid; grid-template-columns: 1fr 1.3fr; gap: 10px; background: var(--white); border-top: 1px solid var(--rule); padding: 10px max(12px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); }
+.mbar .btn { min-height: 48px; }
+@media (min-width: 900px) { .mbar { display: none; } body { padding-bottom: 0; } }
+img.missing { visibility: hidden; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+</style>
+
+</head>
+<body>
+<a class="sr" href="#routes">Skip to content</a>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="mark" href="#top"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M15 3 6.5 22H15z" fill="#1a47a0"/><path d="M17 6c4.8 4 7 9.3 7 16h-7z" fill="#c42d6a"/><path d="M3 25h26l-3 4H6z" fill="#0c1f45"/></svg>Milos Sail Ways</a>
+    <nav class="nav" aria-label="Main"><a href="#routes">Routes</a><a href="#boat">The boat</a><a href="#prices">Prices</a><a href="#faq">FAQ</a></nav>
+    <div class="langs" aria-label="Language"><a href="#" aria-current="true">EN</a><a href="#" lang="el">EL</a><a href="#" lang="fr">FR</a><a href="#" lang="es">ES</a></div>
+    <a class="btn btn-pink" href="#plan">Plan your day</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <h1>Milos, <span>seen from the sea.</span></h1>
+      <p class="lead">A private sailing day to Kleftiko or Polyaigos on Kalypso, our 14 m yacht. Only your group on board, with lunch, an open bar, snorkel gear and a SUP.</p>
+      <div class="btn-row">
+        <a class="btn btn-pink" href="#plan">Plan your day</a>
+        <a class="btn btn-outline" href="https://wa.me/306932977623" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3 3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8c-1.2-.5-2.2-1.5-2.7-2.7l.8-1-1-2z"/></svg>WhatsApp</a>
+      </div>
+      <dl class="stats">
+        <div><dt>Daily</dt><dd>10:00–17:30</dd></div>
+        <div><dt>Guests</dt><dd>up to 10</dd></div>
+        <div><dt>Per boat from</dt><dd>€900</dd></div>
+      </dl>
+    </div>
+    <figure class="hero-photo">
+      <img src="https://milossailways.gr/wp-content/uploads/2026/01/kleftiko-2.jpg" alt="The white rocks of Kleftiko, Milos" fetchpriority="high">
+      <figcaption>Kleftiko, south-west Milos</figcaption>
+    </figure>
+  </div>
+  <svg class="wave" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 22 C150 4 300 4 450 20 S750 38 900 20 S1100 4 1200 16 V40 H0z" fill="#f2f5fb"/></svg>
+</section>
+
+<section class="sec" id="routes" aria-labelledby="routes-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="routes-h">Two routes, one boat</h2>
+      <p class="lead">Same crew, same food, same open bar. Pick the coastline you want to see.</p>
+    </div>
+    <div class="planner-map">
+      <div>
+        <div class="tabs" role="tablist" aria-label="Route">
+          <button role="tab" id="tab-k" aria-selected="true" aria-controls="route-panel" data-r="k">Kleftiko &amp; West Milos</button>
+          <button role="tab" id="tab-p" aria-selected="false" aria-controls="route-panel" data-r="p">Polyaigos &amp; Kimolos</button>
+        </div>
+        <div class="chart" id="chart" data-route="k">
+          <svg viewBox="0 0 680 400" role="img" aria-labelledby="chart-t">
+            <title id="chart-t">Schematic chart of Milos with the two sailing routes</title>
+            <g class="grid">
+              <line x1="0" y1="100" x2="680" y2="100"/><line x1="0" y1="200" x2="680" y2="200"/><line x1="0" y1="300" x2="680" y2="300"/>
+              <line x1="170" y1="0" x2="170" y2="400"/><line x1="340" y1="0" x2="340" y2="400"/><line x1="510" y1="0" x2="510" y2="400"/>
+            </g>
+            <!-- Milos (schematic) -->
+            <path class="land" d="M110,150 Q140,118 220,125 Q232,140 240,170 Q255,215 305,232 Q355,232 372,195 Q378,160 352,132 Q345,118 360,108 Q420,82 540,82 Q562,95 552,125 Q525,175 505,235 Q480,290 400,308 Q300,330 230,330 Q170,328 140,312 Q100,290 80,240 Q78,190 110,150 Z"/>
+            <!-- Kimolos -->
+            <path class="land" d="M532,34 Q552,16 584,26 Q610,38 598,58 Q574,74 548,64 Q526,54 532,34 Z"/>
+            <!-- Polyaigos -->
+            <path class="land" d="M606,96 Q632,80 652,96 Q666,118 652,142 Q632,162 612,148 Q594,128 606,96 Z"/>
+            <!-- Manolonisi -->
+            <circle class="land" cx="616" cy="178" r="6"/>
+            <text class="lbl-big" x="250" y="285">Milos</text>
+            <text class="lbl-isl" x="540" y="18">Kimolos</text>
+            <text class="lbl-isl" x="604" y="80">Polyaigos</text>
+            <!-- courses -->
+            <path class="course k" d="M362,158 C330,150 280,148 244,150 C228,124 200,100 150,104 C108,108 82,126 70,162 C56,202 52,240 58,272 C70,318 108,348 150,346 M150,346 C110,344 66,320 52,282 C44,236 50,196 66,166 C80,132 112,110 160,112 C210,116 236,132 272,146 C304,156 336,160 362,158"/>
+            <path class="course p" d="M362,158 C330,150 300,140 292,120 C286,96 330,70 420,64 C500,58 540,70 572,76 C596,82 606,92 600,108 C592,130 594,160 606,184 M606,184 C570,176 560,110 524,84 C470,60 330,66 304,108 C298,136 330,154 362,158"/>
+            <!-- stops -->
+            <g class="stop port k p"><circle cx="362" cy="158" r="8"/></g>
+            <text class="lbl" x="378" y="164">Adamas</text>
+            <g class="stop k"><circle cx="236" cy="146" r="6"/><text class="lbl" x="250" y="146">Klima</text></g>
+            <g class="stop k"><circle cx="110" cy="148" r="6"/><text class="lbl" x="118" y="140">Cape Vani</text></g>
+            <g class="stop k"><circle cx="86" cy="196" r="6"/><text class="lbl" x="98" y="200">Kalogries</text></g>
+            <g class="stop k"><circle cx="80" cy="248" r="6"/><text class="lbl" x="94" y="252">Sykia</text></g>
+            <g class="stop k"><circle cx="150" cy="320" r="8"/><text class="lbl" x="164" y="322" style="font-weight:800;fill:#c42d6a">Kleftiko</text></g>
+            <g class="stop p"><circle cx="572" cy="74" r="6"/></g>
+            <g class="stop p"><circle cx="604" cy="118" r="8"/></g>
+            <g class="stop p"><circle cx="616" cy="178" r="6"/><text class="lbl" x="560" y="200">Manolonisi</text></g>
+            <g class="compass" transform="translate(52,48)"><circle r="18" fill="none" stroke="#9fb3d9"/><path d="M0,-14 L5,4 L0,0 L-5,4Z" fill="#1a47a0"/><text x="-5" y="-22" class="lbl">N</text></g>
+          </svg>
+          <span class="chart-note">Schematic, not for navigation</span>
+        </div>
+      </div>
+      <div class="route-panel" id="route-panel" role="tabpanel" aria-labelledby="tab-k">
+        <h3 id="r-name">Kleftiko &amp; West Milos</h3>
+        <p class="lead" id="r-lead"></p>
+        <ol class="stops" id="r-stops"></ol>
+        <p class="alt" id="r-alt"></p>
+        <div class="btn-row"><a class="btn btn-pink" href="#plan" id="r-book">Book this route</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-white" aria-labelledby="photos-h">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="photos-h">A day on Kalypso</h2></div>
+    <div class="strip" tabindex="0" aria-label="Photos, scroll sideways">
+      <figure><div class="ph"><img src="https://milossailways.gr/wp-content/uploads/2026/02/1770061475811.jpg" alt="Guests on deck" loading="lazy"></div><figcaption>Breakfast on deck</figcaption></figure>
+      <figure><div class="ph"><img src="https://milossailways.gr/wp-content/uploads/2026/02/DSC_3043.jpg" alt="Swimming at Kleftiko" loading="lazy"></div><figcaption>Swim stop at Kleftiko</figcaption></figure>
+      <figure><div class="ph"><img src="https://milossailways.gr/wp-content/uploads/2026/01/331.jpg" alt="Polyaigos bay" loading="lazy"></div><figcaption>Turquoise water at Polyaigos</figcaption></figure>
+      <figure><div class="ph"><img src="https://milossailways.gr/wp-content/uploads/2026/07/GOPR1786_1785240440666.jpg" alt="Snorkelling" loading="lazy"></div><figcaption>Snorkel and GoPro included</figcaption></figure>
+      <figure><div class="ph"><img src="https://milossailways.gr/wp-content/uploads/2026/02/DSC_3065.jpg" alt="Lunch on board" loading="lazy"></div><figcaption>Greek lunch on board</figcaption></figure>
+      <figure><div class="ph"><img src="https://milossailways.gr/wp-content/uploads/2026/07/IMG20260702162557.jpg" alt="Sailing back in the afternoon" loading="lazy"></div><figcaption>Sailing home at 17:30</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="incl-h">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="incl-h">Everything is included</h2><p class="lead">One price for the whole boat. Food, drinks and gear are all part of it.</p></div>
+    <div class="incl">
+      <div><h3>Food &amp; drinks</h3><ul><li>Breakfast</li><li>Full lunch inspired by Greek cuisine</li><li>Wine and beer</li><li>Soft drinks and water</li><li>Coffee, juices and tea</li></ul></div>
+      <div><h3>In the water</h3><ul><li>Snorkelling gear</li><li>SUP paddle board</li><li>GoPro camera</li><li>Tender to caves, when the sea allows</li><li>Outdoor shower after swimming</li></ul></div>
+      <div><h3>On board</h3><ul><li>Shade and cushions</li><li>Four toilets, indoor shower</li><li>Free Wi-Fi and USB charging</li><li>Bluetooth speakers</li><li>Experienced local crew</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-white" id="boat" aria-labelledby="boat-h">
+  <div class="wrap boat">
+    <div class="boat-ph"><img src="https://milossailways.gr/wp-content/uploads/2026/02/1770061476092-1024x1024.jpg" alt="Kalypso, a Dromor Triton 48 sailing yacht" loading="lazy"></div>
+    <div>
+      <h2 id="boat-h">Meet Kalypso</h2>
+      <p class="lead">A Dromor Triton 48, designed by Greek naval architect Triantafyllopoulos for the Aegean. Stable, roomy and comfortable at 8–10 knots. Your hosts are Nikos Mathioudakis and Minas Moraitis.</p>
+      <dl class="specs">
+        <div><dt>Length</dt><dd>14 m</dd></div>
+        <div><dt>Cabins</dt><dd>5</dd></div>
+        <div><dt>Toilets</dt><dd>4</dd></div>
+        <div><dt>Guests</dt><dd>up to 10</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="sec prices" id="prices" aria-labelledby="prices-h">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="prices-h">What it costs</h2><p class="lead">Pick your month. Price for the whole boat for up to 8 guests, VAT included. Each extra guest €50, up to 10.</p></div>
+    <div class="months" id="months" role="group" aria-label="Month"></div>
+    <div class="price-out" aria-live="polite"><span class="big" id="m-price">€1,300</span><p id="m-note">per boat in July, up to 8 guests</p></div>
+  </div>
+</section>
+
+<section class="sec" id="plan" aria-labelledby="plan-h">
+  <div class="wrap" style="max-width:900px">
+    <div class="sec-head"><h2 id="plan-h">Plan your day</h2><p class="lead">Choose a route, a date and your group size. We'll confirm availability on WhatsApp.</p></div>
+    <form class="plan" id="plan-form" novalidate>
+      <div class="plan-grid">
+        <div><label for="p-route">Route</label><select id="p-route"><option value="k">Kleftiko &amp; West Milos</option><option value="p">Polyaigos &amp; Kimolos</option><option value="u">Not sure yet</option></select></div>
+        <div><label for="p-date">Date</label><input type="date" id="p-date"></div>
+        <div><span class="lbl-txt" id="p-guests-l">Guests</span><div class="stepper" role="group" aria-labelledby="p-guests-l"><button type="button" id="g-minus" aria-label="One guest less">−</button><output id="p-guests">4</output><button type="button" id="g-plus" aria-label="One guest more">+</button></div></div>
+        <div><label for="p-name">Your name</label><input id="p-name" autocomplete="name"></div>
+        <div style="grid-column: span 2; min-width: 0"><label for="p-note">Allergies, a birthday, questions (optional)</label><input id="p-note"></div>
+      </div>
+      <div class="plan-sum">
+        <div><span class="sum-price" id="p-price">–</span><small id="p-price-note">Pick a date to see your price</small></div>
+        <a class="btn btn-pink" id="p-send" href="https://wa.me/306932977623" target="_blank" rel="noopener">Send request on WhatsApp</a>
+      </div>
+      <p class="plan-err" id="p-err" hidden></p>
+      <p class="contact-line">Prefer to call or email? <b>+30 693 297 7623</b> · <b>info@milossailways.gr</b></p>
+      <p class="plan-msg">Nothing is booked until we confirm. Free cancellation up to 24 hours before departure.</p>
+    </form>
+  </div>
+</section>
+
+<section class="sec sec-white" id="faq" aria-labelledby="faq-h">
+  <div class="wrap faq-wrap">
+    <div><h2 id="faq-h">Good to know</h2><p class="lead">Still unsure? Message us on WhatsApp, we're happy to help.</p></div>
+    <div class="faq">
+      <details><summary>Where does the cruise start?</summary><p>Most cruises leave from Adamas, the main port of Milos, at 10:00. When strong north wind makes the sea rough, we start from Agia Kyriaki on the south coast instead and let you know in advance.</p></details>
+      <details><summary>What is included in the price?</summary><p>The private boat and crew, breakfast, a full Greek-style lunch, an open bar with wine, beer, soft drinks, coffee and juices, plus snorkelling gear, a SUP board and a GoPro.</p></details>
+      <details><summary>How many people can join?</summary><p>The price covers up to 8 guests. Up to 10 guests can join, with €50 for each extra person. Only your group is on board.</p></details>
+      <details><summary>We have allergies or eat vegetarian. Is that OK?</summary><p>Yes. Tell us when you book and we'll adapt the menu.</p></details>
+      <details><summary>What happens if the weather is bad?</summary><p>Safety comes first. The captain may change the route to calmer water. If we have to cancel because of weather, you get a full refund.</p></details>
+      <details><summary>What should I bring?</summary><p>Swimwear, a towel, sunscreen, a hat and sunglasses. Everything else is on board.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="mark" href="#top">Milos Sail Ways</a><p>Private sailing cruises around Milos, Cyclades. Season 1 April – 15 October.</p></div>
+      <div><h3>Contact</h3><ul><li><a href="https://wa.me/306932977623" target="_blank" rel="noopener">WhatsApp</a></li><li>+30 693 297 7623</li><li>info@milossailways.gr</li><li>Mersinia, Milos 848 00</li></ul></div>
+      <div><h3>Follow</h3><ul><li><a href="https://www.instagram.com/milos_sailways/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/profile.php?id=61583559621736" target="_blank" rel="noopener">Facebook</a></li><li>Office hours 10:00–19:00</li></ul></div>
+    </div>
+    <small>© 2026 Milos Sail Ways</small>
+  </div>
+</footer>
+
+<div class="mbar"><a class="btn btn-blue" href="https://wa.me/306932977623" target="_blank" rel="noopener">WhatsApp</a><a class="btn btn-pink" href="#plan">Plan your day</a></div>
+
+<script>
+(function () {
+  document.querySelectorAll('img').forEach(function (i) {
+    var m = function () { i.classList.add('missing'); };
+    if (i.complete && !i.naturalWidth) m(); i.addEventListener('error', m);
+  });
+
+  var R = {
+    k: { name: 'Kleftiko & West Milos', lead: 'Sea caves and white rock arches along the wild west coast. The classic Milos day.',
+      stops: [['10:00', 'Adamas', 'Board at the main port and sail out of the bay.'], ['', 'Klima & Arkoudes', 'Colourful fishermen’s houses built into the rock.'], ['', 'Sykia', 'A wild, rarely visited corner with deep turquoise water.'], ['', 'Kleftiko', 'Swim and snorkel between white rocks and caves.', 1], ['', 'Kalogries', 'A last swim stop on the way back.'], ['17:30', 'Cape Vani → Adamas', 'Sail past Cape Vani and back to port.']],
+      alt: 'Strong north wind? Then we start from Agia Kyriaki in the south: swim at Gerakas, pass Tsigrado, then lunch at Kleftiko.' },
+    p: { name: 'Polyaigos & Kimolos', lead: 'Turquoise bays at the largest uninhabited island in the Aegean. A calm day made for swimming.',
+      stops: [['10:00', 'Adamas', 'Board at the main port.'], ['', 'Kimolos', 'Sail along Kimolos, with a photo or swim stop when the sea allows.'], ['', 'Polyaigos', 'A long swim stop in exotic turquoise bays.', 1], ['', 'Manolonisi', 'Another peaceful stop for swimming.'], ['17:30–18:30', 'Return', 'Back to port, depending on wind and route.']],
+      alt: 'On windy days we start from Agia Kyriaki. The captain agrees any change of route with you first.' }
+  };
+  var chart = document.getElementById('chart'), sel = document.getElementById('p-route');
+  function setRoute(r) {
+    chart.dataset.route = r;
+    document.querySelectorAll('.tabs button').forEach(function (b) { b.setAttribute('aria-selected', String(b.dataset.r === r)); });
+    document.getElementById('route-panel').setAttribute('aria-labelledby', 'tab-' + r);
+    var d = R[r];
+    document.getElementById('r-name').textContent = d.name;
+    document.getElementById('r-lead').textContent = d.lead;
+    document.getElementById('r-alt').textContent = d.alt;
+    document.getElementById('r-stops').innerHTML = d.stops.map(function (s) {
+      return '<li' + (s[3] ? ' class="lunch"' : '') + '><time>' + s[0] + '</time><div><strong' + (s[3] ? ' data-tag="Lunch"' : '') + '>' + s[1] + '</strong><span>' + s[2] + '</span></div></li>';
+    }).join('');
+  }
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs button'));
+  tabs.forEach(function (b, i) {
+    b.addEventListener('click', function () { setRoute(b.dataset.r); });
+    b.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { var n = tabs[(i + 1) % 2]; n.focus(); setRoute(n.dataset.r); }
+    });
+  });
+  document.getElementById('r-book').addEventListener('click', function () { sel.value = chart.dataset.route; update(); });
+  setRoute('k');
+
+  // prices
+  var P = [[4, 'Apr', 'April', 900], [5, 'May', 'May', 1000], [6, 'Jun', 'June', 1200], [7, 'Jul', 'July', 1300], [8, 'Aug', 'August', 1300], [9, 'Sep', 'September', 1300], [10, 'Oct', 'October (until 15th)', 1000]];
+  var eur = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+  var months = document.getElementById('months');
+  months.innerHTML = P.map(function (m) { return '<button type="button" aria-pressed="' + (m[0] === 7) + '" data-m="' + m[0] + '">' + m[1] + '</button>'; }).join('');
+  months.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    months.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+    var m = P.find(function (x) { return x[0] == b.dataset.m; });
+    document.getElementById('m-price').textContent = eur.format(m[3]);
+    document.getElementById('m-note').textContent = 'per boat in ' + m[2] + ', up to 8 guests';
+  });
+
+  // planner
+  var g = 4, date = document.getElementById('p-date'), out = document.getElementById('p-guests'), send = document.getElementById('p-send'), err = document.getElementById('p-err');
+  var now = new Date(), y = now.getFullYear(); if (now > new Date(y, 9, 15)) y++;
+  var pad = function (n) { return String(n).padStart(2, '0'); };
+  var min = new Date(Math.max(now, new Date(y, 3, 1)));
+  date.min = min.getFullYear() + '-' + pad(min.getMonth() + 1) + '-' + pad(min.getDate());
+  date.max = (y + 1) + '-10-15';
+  function price() {
+    if (!date.value) return null;
+    var p = date.value.split('-').map(Number), m = P.find(function (x) { return x[0] === p[1]; });
+    if (!m || (p[1] === 10 && p[2] > 15)) return -1;
+    return m[3] + Math.max(0, g - 8) * 50;
+  }
+  function update() {
+    out.textContent = g;
+    document.getElementById('g-minus').disabled = g <= 1;
+    document.getElementById('g-plus').disabled = g >= 10;
+    var p = price(), pe = document.getElementById('p-price'), pn = document.getElementById('p-price-note');
+    if (p === null) { pe.textContent = '–'; pn.textContent = 'Pick a date to see your price'; }
+    else if (p === -1) { pe.textContent = '–'; pn.textContent = 'We sail from 1 April to 15 October.'; }
+    else { pe.textContent = eur.format(p); pn.textContent = 'for the whole boat, ' + g + ' guests, VAT included'; }
+    var lines = ['Hello Milos Sail Ways! I would like to book a private cruise.', '', 'Route: ' + sel.options[sel.selectedIndex].text, 'Date: ' + (date.value || '?'), 'Guests: ' + g];
+    var n = document.getElementById('p-name').value.trim(), note = document.getElementById('p-note').value.trim();
+    if (n) lines.push('Name: ' + n);
+    if (p > 0) lines.push('Estimated price: ' + eur.format(p));
+    if (note) lines.push('', note);
+    send.href = 'https://wa.me/306932977623?text=' + encodeURIComponent(lines.join('\n'));
+  }
+  document.getElementById('g-minus').onclick = function () { if (g > 1) { g--; update(); } };
+  document.getElementById('g-plus').onclick = function () { if (g < 10) { g++; update(); } };
+  ['p-date', 'p-route', 'p-name', 'p-note'].forEach(function (id) { var el = document.getElementById(id); el.addEventListener('input', update); el.addEventListener('change', update); });
+  send.addEventListener('click', function (e) {
+    var p = price();
+    if (p === null || p === -1) { e.preventDefault(); err.textContent = p === null ? 'Please pick a date first.' : 'Please pick a date between 1 April and 15 October.'; err.hidden = false; date.focus(); }
+    else err.hidden = true;
+  });
+  update();
+})();
+</script>
+
+</body>
+</html>
